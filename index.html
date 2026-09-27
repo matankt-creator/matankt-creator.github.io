@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>מתן טורקיה | צלם וידאו ובמאי</title>
-<meta name="description" content="צלם וידאו ובמאי — הפקות שידור וטלוויזיה, צילום אווירי ברחפן (רישיון רת&quot;א), צילום תת-ימי, אייטמים וכתבות וידאו.">
-<meta property="og:title" content="מתן טורקיה | צלם וידאו ובמאי">
-<meta property="og:description" content="הפקות שידור · רחפן · תת-ימי · סושיאל">
+<title>מתן טורקיה | צילום ועריכת וידאו</title>
+<meta name="description" content="צילום ועריכה לטלוויזיה, להפקות ולעסקים. ימי צילום להפקות ושידור, תוכן חודשי לעסקים ועריכה בלבד. רחפן ברישיון רת&quot;א וצילום תת-ימי.">
+<meta property="og:title" content="מתן טורקיה | צילום ועריכת וידאו">
+<meta property="og:description" content="צילום להפקות ושידור · תוכן חודשי לעסקים · עריכה בלבד · רחפן · תת-ימי">
+<!-- תמונת שיתוף: להעלות לריפו קובץ og.jpg בגודל 1200x630 ואז למחוק את סימני ההערה מהשורה הבאה -->
+<!-- <meta property="og:image" content="https://matankt-creator.github.io/og.jpg"> -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -19,7 +21,8 @@
   .wrap { max-width: 560px; margin: 0 auto; padding: 32px 20px 90px; }
 
   header { text-align: center; padding: 24px 0 8px; }
-  .avatar { width: 92px; height: 92px; border-radius: 50%; background: linear-gradient(135deg, #ffb347, #ff6b6b); display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 800; color: #111; margin: 0 auto 14px; }
+  .avatar { width: 92px; height: 92px; border-radius: 50%; background: linear-gradient(135deg, #ffb347, #ff6b6b); display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 800; color: #111; margin: 0 auto 14px; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
   h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
   .role { color: var(--accent); font-weight: 600; margin-top: 2px; }
   .tagline { color: var(--muted); font-size: 15px; margin-top: 10px; }
@@ -39,11 +42,25 @@
   h2 { font-size: 18px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
   h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-  .svc { display: grid; gap: 10px; }
-  .svc-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
-  .svc-card h3 { font-size: 15.5px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-  .svc-card p { color: var(--muted); font-size: 13.5px; margin-top: 3px; }
-  .svc-card .tag { font-size: 11px; color: var(--accent); border: 1px solid rgba(255,179,71,.35); padding: 1px 8px; border-radius: 999px; margin-inline-start: auto; white-space: nowrap; }
+  /* שלוש המשפחות */
+  .fams { display: grid; gap: 12px; }
+  .fam { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; }
+  .fam-head { display: flex; align-items: baseline; gap: 10px; }
+  .fam-num { color: var(--accent); font-weight: 800; font-size: 13px; letter-spacing: .5px; }
+  .fam h3 { font-size: 17px; font-weight: 800; }
+  .fam .for { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .fam .body { font-size: 14.5px; margin-top: 10px; }
+  .items { list-style: none; padding: 0; margin-top: 10px; border-top: 1px solid var(--line); }
+  .items li { display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+  .items li:last-child { border-bottom: 0; padding-bottom: 2px; }
+  .items li span small { display: block; color: var(--muted); font-size: 12.5px; }
+  .price { margin-inline-start: auto; white-space: nowrap; font-style: normal; font-size: 12.5px; color: var(--accent); }
+  .fam-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+
+  .addons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .addon { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; }
+  .addon b { display: block; font-weight: 600; font-size: 14px; }
+  .addon .price { display: block; margin-top: 2px; }
 
   .clients { color: var(--muted); font-size: 14px; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
   .clients b { color: var(--text); font-weight: 600; }
@@ -62,19 +79,21 @@
 <div class="wrap">
 
   <header>
+    <!-- כשיש תמונה: להעלות לריפו me.jpg ולהחליף את האות מ ב- <img src="me.jpg" alt="מתן טורקיה"> -->
     <div class="avatar">מ</div>
     <h1>מתן טורקיה</h1>
-    <div class="role">צלם וידאו · במאי</div>
-    <p class="tagline">מצלם להפקות טלוויזיה, ערוצי תוכן ומותגים —<br>מהאולפן, מהאוויר ומתחת למים.</p>
+    <div class="role">צילום · בימוי · עריכה</div>
+    <p class="tagline">צילום ועריכה לטלוויזיה, להפקות ולעסקים.<br>מהאולפן, מהאוויר ומתחת למים.</p>
     <div class="badges">
+      <span class="badge"><b>שידור</b> · אולפן ושטח</span>
       <span class="badge"><b>רחפן</b> · רישיון רת"א</span>
       <span class="badge"><b>תת-ימי</b> · ציוד מלא</span>
-      <span class="badge"><b>שידור</b> · אולפן ושטח</span>
+      <span class="badge"><b>עריכה</b> · כולל כלי AI</span>
     </div>
   </header>
 
   <div class="cta">
-    <a class="btn wa" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A6%D7%99%D7%9C%D7%95%D7%9D">
+    <a class="btn wa" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 .2-.4.4-.9l.4-.6c.1-.2 0-.4 0-.5L9.6 7.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9 1-1.2 2.3-.2 4a11 11 0 0 0 4.6 4.2c1.7.8 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2z"/></svg>
       דברו איתי בוואטסאפ
     </a>
@@ -89,14 +108,39 @@
   </div>
 
   <section>
-    <h2>מה אני מצלם</h2>
-    <div class="svc">
-      <div class="svc-card"><h3>ימי צילום להפקות ושידור <span class="tag">אולפן / שטח</span></h3><p>עבודה עם חברות הפקה וערוצים — מולטי-קאמרה, אולפן, כתבות ותוכניות.</p></div>
-      <div class="svc-card"><h3>הפקה עצמאית — ציוד מלא <span class="tag">מא' עד ת'</span></h3><p>מגיע ערוך עם מצלמה, עדשות, סאונד, תאורה וגימבל — פתרון שלם לצילום בלי מחלקת ציוד.</p></div>
-      <div class="svc-card"><h3>אייטמים וכתבות וידאו <span class="tag">סושיאל / מגזין</span></h3><p>אייטם בודד או סדרת אייטמים — לערוצי תוכן, מגזינים וסוכנויות סושיאל.</p></div>
-      <div class="svc-card"><h3>צילום אווירי — רחפן <span class="tag">רישיון רת"א</span></h3><p>צילום אווירי חוקי ומבוטח — נדל"ן, אירועים, פרסומות, או כתוסף לכל הפקה.</p></div>
-      <div class="svc-card"><h3>צילום תת-ימי <span class="tag">נישה</span></h3><p>ציוד צילום וצלילה בבעלותי — בריכה וים, ספורט ימי, קליפים ופרסומות.</p></div>
-      <div class="svc-card"><h3>צלם / במאי לפרויקט <span class="tag">Crew for hire</span></h3><p>יש לכם קריאייטיב? אני מביא את הביצוע — צילום או בימוי סט ברמה של שידור.</p></div>
+    <h2>מה אני עושה</h2>
+    <div class="fams">
+
+      <div class="fam">
+        <div class="fam-head"><span class="fam-num">01</span><h3>צילום להפקות ושידור</h3></div>
+        <p class="for">לחברות הפקה, ערוצים ומערכות תוכן</p>
+        <ul class="items">
+          <li><span>יום צילום על ציוד ההפקה<small>אולפן, שטח, מולטי-קאמרה</small></span><em class="price" data-price="studio">לקבלת הצעה</em></li>
+          <li><span>יום צילום עם ציוד מלא<small>מצלמה, עדשות, סאונד, תאורה וגימבל</small></span><em class="price" data-price="fullkit">לקבלת הצעה</em></li>
+          <li><span>צלם או במאי לפרויקט<small>אתם מביאים את הקריאייטיב, אני את הביצוע</small></span><em class="price" data-price="director">לקבלת הצעה</em></li>
+          <li><span>אייטמים וכתבות וידאו<small>אייטם בודד או סדרה</small></span><em class="price" data-price="item">לקבלת הצעה</em></li>
+        </ul>
+      </div>
+
+      <div class="fam">
+        <div class="fam-head"><span class="fam-num">02</span><h3>תוכן חודשי לעסקים</h3></div>
+        <p class="for">לעסקים ומותגים שצריכים תוכן קבוע</p>
+        <p class="body">יום צילום אחד בחודש, ומתוכו: 8 סרטוני סושיאל, סרט Hero אחד, גרסאות 9:16 ו-16:9 וכתוביות. מחיר חודשי קבוע, בלי לתאם כל פעם מחדש.</p>
+        <div class="fam-foot"><span>חבילה חודשית</span><em class="price" data-price="monthly">לקבלת הצעה</em></div>
+      </div>
+
+      <div class="fam">
+        <div class="fam-head"><span class="fam-num">03</span><h3>עריכה בלבד</h3></div>
+        <p class="for">לסוכנויות, מערכות תוכן ועסקים שכבר מצלמים</p>
+        <p class="body">שולחים חומרי גלם, מקבלים סרטונים ערוכים. עבודה חד-פעמית או ריטיינר של 8, 12 או 20 סרטונים בחודש. עובד עם כלי AI לחיתוך, כתוביות וגרסאות, ועם לקוחות בארץ ובחו"ל.</p>
+        <div class="fam-foot"><span>לפי פרויקט או ריטיינר</span><em class="price" data-price="editing">לקבלת הצעה</em></div>
+      </div>
+
+    </div>
+
+    <div class="addons">
+      <div class="addon"><b>רחפן</b>רישיון מפעיל מסחרי מרת"א<em class="price" data-price="drone" data-suffix="כתוסף">לכל אחת מהעבודות</em></div>
+      <div class="addon"><b>צילום תת-ימי</b>ציוד צילום וצלילה בבעלותי<em class="price" data-price="underwater" data-suffix="כתוסף">לכל אחת מהעבודות</em></div>
     </div>
   </section>
 
@@ -108,20 +152,47 @@
   <section>
     <h2>דוגמאות</h2>
     <div class="examples" id="examples">
-      שואוריל חדש בעריכה ממש בימים אלה 🎬<br>
+      שואוריל חדש עולה בקרוב.<br>
       בינתיים אפשר לראות עבודות <a href="https://instagram.com/mtkphotography" target="_blank" rel="noopener">באינסטגרם</a>
-      או לבקש דוגמאות רלוונטיות <a href="https://wa.me/972503342270">בוואטסאפ</a>.
+      או לבקש דוגמאות רלוונטיות <a href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8">בוואטסאפ</a>.
     </div>
   </section>
 
   <footer>
-    מתן טורקיה · צלם וידאו ובמאי<br>
+    מתן טורקיה · צילום ועריכת וידאו<br>
     <a href="mailto:matankt@gmail.com">matankt@gmail.com</a> · <a href="tel:+972503342270">050-334-2270</a>
   </footer>
 </div>
 
-<a class="float-wa" href="https://wa.me/972503342270" aria-label="WhatsApp">
+<a class="float-wa" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="#08300f"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.4-.9l.4-.6c.1-.2 0-.4 0-.5L9.6 7.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9 1-1.2 2.3-.2 4a11 11 0 0 0 4.6 4.2c1.7.8 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2z"/></svg>
 </a>
+
+<script>
+  // ===== מחירים: מעדכנים רק כאן =====
+  // SHOW_PRICES = true  -> כל כרטיס מציג "החל מ-X ₪ + מע"מ"
+  // SHOW_PRICES = false -> כל כרטיס מציג "לקבלת הצעה"
+  // מחיר null -> הכרטיס הזה תמיד מציג "לקבלת הצעה"
+  const SHOW_PRICES = false;
+  const PRICES = {
+    studio: 1100,     // יום צילום על ציוד ההפקה
+    fullkit: 2200,    // יום צילום עם ציוד מלא
+    director: 1800,   // במאי ליום
+    item: 600,        // אייטם / כתבת וידאו
+    monthly: null,    // חבילת תוכן חודשית (עוד לא נקבע)
+    editing: null,    // עריכה בלבד (עוד לא נקבע)
+    drone: 400,       // רחפן כתוסף
+    underwater: 1000  // תת-ימי כתוסף
+  };
+
+  if (SHOW_PRICES) {
+    document.querySelectorAll("[data-price]").forEach(function (el) {
+      var v = PRICES[el.dataset.price];
+      if (v == null) return;
+      var suffix = el.dataset.suffix ? " " + el.dataset.suffix : "";
+      el.textContent = "החל מ-" + v.toLocaleString("he-IL") + " ₪ + מע\"מ" + suffix;
+    });
+  }
+</script>
 </body>
 </html>
