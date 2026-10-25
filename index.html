@@ -1,198 +1,687 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>מתן טורקיה | צילום ועריכת וידאו</title>
-<meta name="description" content="צילום ועריכה לטלוויזיה, להפקות ולעסקים. ימי צילום להפקות ושידור, תוכן חודשי לעסקים ועריכה בלבד. רחפן ברישיון רת&quot;א וצילום תת-ימי.">
-<meta property="og:title" content="מתן טורקיה | צילום ועריכת וידאו">
-<meta property="og:description" content="צילום להפקות ושידור · תוכן חודשי לעסקים · עריכה בלבד · רחפן · תת-ימי">
-<!-- תמונת שיתוף: להעלות לריפו קובץ og.jpg בגודל 1200x630 ואז למחוק את סימני ההערה מהשורה הבאה -->
-<!-- <meta property="og:image" content="https://matankt-creator.github.io/og.jpg"> -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #0d0d10; --card: #17171c; --line: #26262e;
-    --text: #f2f2f2; --muted: #9a9aa5; --accent: #ffb347; --wa: #25d366;
-  }
-  * { box-sizing: border-box; margin: 0; }
-  body { background: var(--bg); color: var(--text); font-family: "Heebo", -apple-system, sans-serif; line-height: 1.55; }
-  .wrap { max-width: 560px; margin: 0 auto; padding: 32px 20px 90px; }
 
-  header { text-align: center; padding: 24px 0 8px; }
-  .avatar { width: 92px; height: 92px; border-radius: 50%; background: linear-gradient(135deg, #ffb347, #ff6b6b); display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 800; color: #111; margin: 0 auto 14px; overflow: hidden; }
-  .avatar img { width: 100%; height: 100%; object-fit: cover; }
-  h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
-  .role { color: var(--accent); font-weight: 600; margin-top: 2px; }
-  .tagline { color: var(--muted); font-size: 15px; margin-top: 10px; }
-
-  .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
-  .badge { border: 1px solid var(--line); background: var(--card); color: var(--muted); font-size: 12.5px; padding: 4px 12px; border-radius: 999px; }
-  .badge b { color: var(--text); font-weight: 600; }
-
-  .cta { display: flex; flex-direction: column; gap: 10px; margin: 26px 0; }
-  .btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 15px; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 16px; transition: transform .12s; }
-  .btn:active { transform: scale(.98); }
-  .btn.wa { background: var(--wa); color: #08300f; }
-  .btn.ghost { background: var(--card); color: var(--text); border: 1px solid var(--line); }
-  .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-
-  section { margin-top: 34px; }
-  h2 { font-size: 18px; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-
-  /* שלוש המשפחות */
-  .fams { display: grid; gap: 12px; }
-  .fam { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; }
-  .fam-head { display: flex; align-items: baseline; gap: 10px; }
-  .fam-num { color: var(--accent); font-weight: 800; font-size: 13px; letter-spacing: .5px; }
-  .fam h3 { font-size: 17px; font-weight: 800; }
-  .fam .for { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
-  .fam .body { font-size: 14.5px; margin-top: 10px; }
-  .items { list-style: none; padding: 0; margin-top: 10px; border-top: 1px solid var(--line); }
-  .items li { display: flex; gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
-  .items li:last-child { border-bottom: 0; padding-bottom: 2px; }
-  .items li span small { display: block; color: var(--muted); font-size: 12.5px; }
-  .price { margin-inline-start: auto; white-space: nowrap; font-style: normal; font-size: 12.5px; color: var(--accent); }
-  .fam-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
-
-  .addons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-  .addon { flex: 1 1 150px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; }
-  .addon b { display: block; font-weight: 600; font-size: 14px; }
-  .addon .price { display: block; margin-top: 2px; }
-
-  .clients { color: var(--muted); font-size: 14px; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
-  .clients b { color: var(--text); font-weight: 600; }
-
-  .examples { background: var(--card); border: 1px dashed var(--line); border-radius: 14px; padding: 26px 16px; text-align: center; color: var(--muted); font-size: 14px; }
-  .examples a { color: var(--accent); }
-
-  footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 13px; }
-  footer a { color: var(--muted); }
-
-  .float-wa { position: fixed; bottom: 18px; inset-inline-start: 18px; width: 56px; height: 56px; border-radius: 50%; background: var(--wa); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.45); z-index: 9; }
-  .float-wa svg { width: 28px; height: 28px; }
-</style>
-</head>
-<body>
-<div class="wrap">
-
-  <header>
-    <!-- כשיש תמונה: להעלות לריפו me.jpg ולהחליף את האות מ ב- <img src="me.jpg" alt="מתן טורקיה"> -->
-    <div class="avatar">מ</div>
-    <h1>מתן טורקיה</h1>
-    <div class="role">צילום · בימוי · עריכה</div>
-    <p class="tagline">צילום ועריכה לטלוויזיה, להפקות ולעסקים.<br>מהאולפן, מהאוויר ומתחת למים.</p>
-    <div class="badges">
-      <span class="badge"><b>שידור</b> · אולפן ושטח</span>
-      <span class="badge"><b>רחפן</b> · רישיון רת"א</span>
-      <span class="badge"><b>תת-ימי</b> · ציוד מלא</span>
-      <span class="badge"><b>עריכה</b> · כולל כלי AI</span>
-    </div>
-  </header>
-
-  <div class="cta">
-    <a class="btn wa" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 .2-.4.4-.9l.4-.6c.1-.2 0-.4 0-.5L9.6 7.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9 1-1.2 2.3-.2 4a11 11 0 0 0 4.6 4.2c1.7.8 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2z"/></svg>
-      דברו איתי בוואטסאפ
-    </a>
-    <a class="btn ghost" href="tel:+972503342270">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-      050-334-2270
-    </a>
-    <a class="btn ghost" href="https://instagram.com/mtkphotography" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-      @mtkphotography באינסטגרם
-    </a>
-  </div>
-
-  <section>
-    <h2>מה אני עושה</h2>
-    <div class="fams">
-
-      <div class="fam">
-        <div class="fam-head"><span class="fam-num">01</span><h3>צילום להפקות ושידור</h3></div>
-        <p class="for">לחברות הפקה, ערוצים ומערכות תוכן</p>
-        <ul class="items">
-          <li><span>יום צילום על ציוד ההפקה<small>אולפן, שטח, מולטי-קאמרה</small></span><em class="price" data-price="studio">לקבלת הצעה</em></li>
-          <li><span>יום צילום עם ציוד מלא<small>מצלמה, עדשות, סאונד, תאורה וגימבל</small></span><em class="price" data-price="fullkit">לקבלת הצעה</em></li>
-          <li><span>צלם או במאי לפרויקט<small>אתם מביאים את הקריאייטיב, אני את הביצוע</small></span><em class="price" data-price="director">לקבלת הצעה</em></li>
-          <li><span>אייטמים וכתבות וידאו<small>אייטם בודד או סדרה</small></span><em class="price" data-price="item">לקבלת הצעה</em></li>
-        </ul>
-      </div>
-
-      <div class="fam">
-        <div class="fam-head"><span class="fam-num">02</span><h3>תוכן חודשי לעסקים</h3></div>
-        <p class="for">לעסקים ומותגים שצריכים תוכן קבוע</p>
-        <p class="body">יום צילום אחד בחודש, ומתוכו: 8 סרטוני סושיאל, סרט Hero אחד, גרסאות 9:16 ו-16:9 וכתוביות. מחיר חודשי קבוע, בלי לתאם כל פעם מחדש.</p>
-        <div class="fam-foot"><span>חבילה חודשית</span><em class="price" data-price="monthly">לקבלת הצעה</em></div>
-      </div>
-
-      <div class="fam">
-        <div class="fam-head"><span class="fam-num">03</span><h3>עריכה בלבד</h3></div>
-        <p class="for">לסוכנויות, מערכות תוכן ועסקים שכבר מצלמים</p>
-        <p class="body">שולחים חומרי גלם, מקבלים סרטונים ערוכים. עבודה חד-פעמית או ריטיינר של 8, 12 או 20 סרטונים בחודש. עובד עם כלי AI לחיתוך, כתוביות וגרסאות, ועם לקוחות בארץ ובחו"ל.</p>
-        <div class="fam-foot"><span>לפי פרויקט או ריטיינר</span><em class="price" data-price="editing">לקבלת הצעה</em></div>
-      </div>
-
-    </div>
-
-    <div class="addons">
-      <div class="addon"><b>רחפן</b>רישיון מפעיל מסחרי מרת"א<em class="price" data-price="drone" data-suffix="כתוסף">לכל אחת מהעבודות</em></div>
-      <div class="addon"><b>צילום תת-ימי</b>ציוד צילום וצלילה בבעלותי<em class="price" data-price="underwater" data-suffix="כתוסף">לכל אחת מהעבודות</em></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>בין הלקוחות</h2>
-    <div class="clients">הפקות ותכנים עבור <b>מט"ח</b> · <b>אולפני הרצליה</b> · <b>Ynet</b> · <b>פיוז'ן</b> · <b>מזמור הפקות</b><br>ביניהם: "מהצד השני", "חדשות הנדל"ן" ועוד</div>
-  </section>
-
-  <section>
-    <h2>דוגמאות</h2>
-    <div class="examples" id="examples">
-      שואוריל חדש עולה בקרוב.<br>
-      בינתיים אפשר לראות עבודות <a href="https://instagram.com/mtkphotography" target="_blank" rel="noopener">באינסטגרם</a>
-      או לבקש דוגמאות רלוונטיות <a href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8">בוואטסאפ</a>.
-    </div>
-  </section>
-
-  <footer>
-    מתן טורקיה · צילום ועריכת וידאו<br>
-    <a href="mailto:matankt@gmail.com">matankt@gmail.com</a> · <a href="tel:+972503342270">050-334-2270</a>
-  </footer>
-</div>
-
-<a class="float-wa" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="#08300f"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.4-.9l.4-.6c.1-.2 0-.4 0-.5L9.6 7.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9 1-1.2 2.3-.2 4a11 11 0 0 0 4.6 4.2c1.7.8 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2z"/></svg>
-</a>
-
-<script>
-  // ===== מחירים: מעדכנים רק כאן =====
-  // SHOW_PRICES = true  -> כל כרטיס מציג "החל מ-X ₪ + מע"מ"
-  // SHOW_PRICES = false -> כל כרטיס מציג "לקבלת הצעה"
-  // מחיר null -> הכרטיס הזה תמיד מציג "לקבלת הצעה"
-  const SHOW_PRICES = false;
-  const PRICES = {
-    studio: 1100,     // יום צילום על ציוד ההפקה
-    fullkit: 2200,    // יום צילום עם ציוד מלא
-    director: 1800,   // במאי ליום
-    item: 600,        // אייטם / כתבת וידאו
-    monthly: null,    // חבילת תוכן חודשית (עוד לא נקבע)
-    editing: null,    // עריכה בלבד (עוד לא נקבע)
-    drone: 400,       // רחפן כתוסף
-    underwater: 1000  // תת-ימי כתוסף
-  };
-
-  if (SHOW_PRICES) {
-    document.querySelectorAll("[data-price]").forEach(function (el) {
-      var v = PRICES[el.dataset.price];
-      if (v == null) return;
-      var suffix = el.dataset.suffix ? " " + el.dataset.suffix : "";
-      el.textContent = "החל מ-" + v.toLocaleString("he-IL") + " ₪ + מע\"מ" + suffix;
+<html dir="rtl" lang="he"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#0a0b0d" name="theme-color"/><meta content="MTK VISUALS — מחלקת הווידאו החיצונית לעסק שלך. אסטרטגיה, צילום ועריכה בתהליך חודשי אחד." name="description"/><title>MTK Visuals | Content · Video · Strategy</title><link href="https://matankt-creator.github.io/" rel="canonical"/><meta content="website" property="og:type"/><meta content="he_IL" property="og:locale"/><meta content="MTK Visuals" property="og:site_name"/><meta content="MTK Visuals | Content · Video · Strategy" property="og:title"/><meta content="MTK VISUALS — מחלקת הווידאו החיצונית לעסק שלך. אסטרטגיה, צילום ועריכה בתהליך חודשי אחד." property="og:description"/><meta content="https://matankt-creator.github.io/assets/img/og.jpg" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="summary_large_image" name="twitter:card"/><link href="assets/img/favicon.svg" rel="icon" type="image/svg+xml"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link as="image" fetchpriority="high" href="assets/img/hero-4b.webp" rel="preload"/><style>
+:root{--bg:#090b0e;--panel:#15191d;--white:#f5f5f0;--muted:#a6afb5;--accent:#c6ff54}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Heebo,Manrope,Arial,sans-serif}body.en{font-family:Manrope,Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}header{position:absolute;z-index:10;top:0;left:0;right:0;padding:24px clamp(20px,5vw,90px);display:flex;justify-content:space-between;align-items:center}.logo{font:800 25px Manrope;letter-spacing:-1.5px}.logo b{color:var(--accent)}nav{display:flex;align-items:center;gap:18px;font-size:13px}nav a{color:#dce0df}.lang{border:1px solid #ffffff55;background:#171a1a88;color:white;padding:8px 12px;border-radius:20px}.hero{min-height:94svh;position:relative;display:flex;align-items:end;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#090b0e 0%,#090b0e33 72%),linear-gradient(90deg,#090b0e55,transparent);z-index:1}.hero video{position:absolute;width:100%;height:100%;object-fit:cover;inset:0;filter:brightness(.65)}.hero-content{position:relative;z-index:2;padding:150px clamp(20px,8vw,140px) 90px;max-width:1050px}.eyebrow{font:700 12px Manrope;letter-spacing:2.2px;color:var(--accent);text-transform:uppercase}.hero h1{font-size:clamp(54px,9.1vw,132px);line-height:1.02;letter-spacing:-.06em;margin:22px 0}.hero p{font-size:clamp(17px,2vw,24px);max-width:620px;line-height:1.65;color:#e0e4e1}.cta{display:inline-flex;gap:12px;align-items:center;background:var(--accent);color:#111;border-radius:4px;font-weight:800;padding:15px 24px;margin-top:20px}.ghost{background:transparent;border:1px solid #777;color:white;margin-inline-start:12px}.container{max-width:1320px;margin:auto;padding:110px clamp(20px,6vw,90px)}.kicker{font:800 12px Manrope;letter-spacing:2px;color:var(--accent);text-transform:uppercase}.section-title{font-size:clamp(38px,6vw,78px);line-height:1.13;letter-spacing:-.04em;margin:15px 0 24px;max-width:850px}.lead{font-size:clamp(17px,2vw,22px);color:#b9c1c4;line-height:1.8;max-width:760px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}.tile{background:#15191d;border:1px solid #292e31;padding:32px;min-height:210px}.tile .num{color:var(--accent);font:800 13px Manrope}.tile h3{font-size:25px;margin:28px 0 10px}.tile p{color:#b3bbbf;line-height:1.7;margin:0}.split{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center}.split img{width:100%;height:610px;object-fit:cover;filter:grayscale(.2)}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:60px}.step{background:#1a1f21;padding:25px;min-height:180px}.step strong{color:var(--accent);font:800 34px Manrope}.step h3{font-size:22px}.step p{color:#b8c0c2}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:45px}.stat{border-top:1px solid #495052;padding-top:25px}.stat b{font:800 clamp(40px,6vw,78px) Manrope;color:var(--accent)}.stat p{color:#b5bdc1}.showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:45px}.showcase video{width:100%;height:350px;object-fit:cover;background:#1b1b1b;border-radius:5px}.showcase figure{margin:0}.showcase figcaption{font-size:13px;color:#aeb7b8;padding:12px 0}.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}.package{border:1px solid #333c40;background:#13171a;padding:32px;display:flex;flex-direction:column}.package.featured{border-color:var(--accent);background:#1b2418}.package .tag{font-size:12px;color:var(--accent);font-weight:800}.package h3{font-size:27px;margin:16px 0}.price{font:800 40px Manrope;margin:10px 0}.price small{font:400 13px Heebo;color:#aab4b6}.package ul{padding-inline-start:20px;line-height:2.2;color:#c3cbce;flex:1}.package .cta{text-align:center;justify-content:center}.note{font-size:13px;color:#9da7ab;line-height:1.8}.gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px;margin-top:35px}.gallery img{width:100%;height:360px;object-fit:cover}.footer{background:#c6ff54;color:#0b1009;text-align:center;padding:100px 20px}.footer h2{font-size:clamp(42px,7vw,90px);letter-spacing:-.05em;margin:10px 0}.footer .cta{background:#0a0b0d;color:white}.footer p{max-width:600px;margin:20px auto}.mobile-cta{display:none}body.en .hero h1{letter-spacing:-.075em}@media(max-width:800px){header{padding:18px 20px}nav a{display:none}.hero{min-height:85svh}.hero-content{padding:130px 22px 65px}.hero h1{font-size:clamp(50px,13vw,78px)}.container{padding:72px 20px}.grid3,.packages,.stats{grid-template-columns:1fr}.split{grid-template-columns:1fr}.split img{height:380px;order:-1}.steps{grid-template-columns:1fr 1fr}.showcase{grid-template-columns:1fr}.showcase video{height:280px}.gallery{grid-template-columns:1fr 1fr}.gallery img{height:230px}.gallery img:first-child{grid-column:span 2;height:320px}.mobile-cta{display:block;position:fixed;bottom:12px;left:15px;right:15px;z-index:20;background:var(--accent);color:#101510;text-align:center;padding:14px;font-weight:800;border-radius:6px;box-shadow:0 10px 35px #0009}body{padding-bottom:50px}}
+.experience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:42px}.experience-card{position:relative;min-height:300px;overflow:hidden;background:#171b1e}.experience-card img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;filter:brightness(.68)}.experience-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#06090be8,transparent 72%)}.experience-card .cap{position:absolute;bottom:18px;inset-inline:18px;z-index:1}.experience-card h3{font-size:19px;margin:0 0 4px}.experience-card p{font-size:13px;color:#cbd1d2;margin:0}.experience-big{font:800 clamp(72px,13vw,170px) Manrope;letter-spacing:-.09em;line-height:1;color:var(--accent)}.experience-end{margin-top:28px;border-top:1px solid #414a4c;padding-top:25px;font-size:clamp(19px,2.5vw,28px);font-weight:700}@media(max-width:800px){.experience-grid{grid-template-columns:repeat(2,1fr)}.experience-card{min-height:240px}}</style><style>.mtk-cta{background:#111b23;color:#fff;padding:78px 24px;text-align:center;direction:rtl}.mtk-cta h2{font-size:clamp(30px,4vw,55px);margin:0 0 18px}.mtk-cta p{max-width:680px;margin:0 auto 22px;line-height:1.8}.mtk-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.mtk-buttons a{padding:14px 22px;border-radius:30px;background:var(--accent);color:#15202b;text-decoration:none;font-weight:700}.mtk-buttons a+a{background:transparent;color:white;border:1px solid #aaa}.mtk-float{position:fixed;bottom:20px;left:20px;z-index:9999;background:#25d366;color:#102b1c!important;border-radius:40px;padding:13px 19px;text-decoration:none;font-weight:800;box-shadow:0 8px 30px #0004;direction:rtl}.logo-tagline{display:block;font:600 9px Manrope;letter-spacing:1.3px;color:#e0e5e0;margin-top:3px}.brand-lockup{line-height:1.1}@media(max-width:800px){.mtk-float{bottom:76px;left:12px;font-size:12px;padding:10px 12px}} </style><style>@font-face{font-family:"MTKHebrew";src:url(assets/fonts/mtk-hebrew.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"MTKEnglish";src:url(assets/fonts/mtk-english.woff2) format("woff2");font-display:swap}
+/* Small, targeted changes to the original design */
+body{font-family:"MTKHebrew",Arial,sans-serif}
+body.en{font-family:"MTKEnglish",Arial,sans-serif}
+.hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 43%;filter:brightness(.68)}
+#problem .tile{position:relative;min-height:185px;transition:transform .2s,border-color .2s}
+#problem .tile:hover{transform:translateY(-4px);border-color:#718c48}
+#problem .tile .num{display:inline-grid;place-items:center;width:34px;height:34px;border:1px solid #d37b7b;color:#ff9d9d;border-radius:50%;font-size:20px;line-height:1}
+#problem .tile h3{margin-top:22px}
+body.en #contact{direction:ltr}
+@media(max-width:800px){body{padding-bottom:0}.hero .hero-photo{object-position:51% center}}
+</style><style>
+/* Compact problem row */
+#problem{padding-top:70px;padding-bottom:72px}
+#problem .grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:25px}
+#problem .tile{min-height:0;padding:18px 20px;border-radius:7px;display:grid;grid-template-columns:22px 1fr;column-gap:10px;align-items:start}
+#problem .tile .num{grid-row:1 / span 2;font-size:20px;line-height:1.3}
+#problem .tile h3{font-size:18px;line-height:1.4;margin:0 0 5px}
+#problem .tile p{font-size:13px;line-height:1.5;margin:0}
+#problem .lead{font-size:16px;line-height:1.55}
+.hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:brightness(.66)}
+@media(max-width:700px){#problem{padding-top:48px;padding-bottom:50px}#problem .grid3{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:20px}#problem .tile{display:block;padding:10px 8px;min-width:0}#problem .tile .num{display:block;font-size:17px;margin-bottom:5px}#problem .tile h3{font-size:13px;line-height:1.25;margin-bottom:4px}#problem .tile p{font-size:10px;line-height:1.4;overflow-wrap:anywhere}#problem .lead{font-size:14px}}
+</style><script>
+(function(){
+  function setLang(lang){
+    var root=document.documentElement;
+    root.lang=lang;root.dir=(lang==='he'?'rtl':'ltr');
+    if(document.body) document.body.classList.toggle('en',lang==='en');
+    document.querySelectorAll('[data-he][data-en]').forEach(function(el){
+      var val=el.getAttribute('data-'+lang);
+      if(val!==null)el.textContent=val;
     });
+    var btn=document.getElementById('switch');
+    if(btn){btn.textContent=(lang==='he'?'EN':'עברית');btn.setAttribute('aria-label',lang==='he'?'Switch to English':'מעבר לעברית');}
+    try{document.dispatchEvent(new CustomEvent('mtk:lang',{detail:lang}));}catch(e){}
   }
-</script>
-</body>
-</html>
+  window.mtkToggleLanguage=function(){setLang(document.documentElement.lang==='en'?'he':'en');};
+  document.addEventListener('DOMContentLoaded',function(){setLang('he');});
+})();
+</script><style>.case-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 24px;margin-top:46px;padding-top:18px;border-top:1px solid #2d3437}.case-head h3{font-size:clamp(20px,2.4vw,28px);margin:0;letter-spacing:-.01em}.case-head span{font:700 12px Manrope;letter-spacing:1.4px;color:var(--accent);text-transform:uppercase}.reels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:18px}.reels.bts{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:40px}.reel{margin:0;min-width:0}.reel video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#15191d;border-radius:6px}.reel figcaption{font-size:13px;color:#aeb7b8;padding:10px 2px 0}.reel figcaption b{color:var(--accent);font:800 12px Manrope;margin-inline-end:8px}.swipe-hint{display:none}#bts .gallery{margin-top:40px}.outcomes .stat b{font-family:Heebo,"MTKHebrew",Arial,sans-serif;font-weight:800;letter-spacing:-.02em;display:block;line-height:1.1}body.en .outcomes .stat b{font-family:Manrope,Arial,sans-serif}.outcomes .stat p{max-width:30ch;line-height:1.6}#work .section-title{margin-bottom:0}@media(max-width:800px){.reels,.reels.bts{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;scrollbar-width:none}.reels::-webkit-scrollbar{display:none}.reel{flex:0 0 58%;scroll-snap-align:start}.swipe-hint{display:block;font-size:12px;color:#8f9a9d;margin:10px 0 0}.case-head{margin-top:36px}}</style><style id="v3">/* v3 motion layer. Same palette as the site: --bg, --panel, --white, --muted, --accent (+ #111b23 contact band) */
+:root{--ease:cubic-bezier(.2,.7,.1,1);--ease-io:cubic-bezier(.65,0,.35,1);--line:#262c2f;--card:#15191d;--cta-bg:#111b23}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+::selection{background:var(--accent);color:#0b1009}
+
+/* ---------- film grain + scroll progress ---------- */
+.grain{position:fixed;inset:-50%;z-index:60;pointer-events:none;opacity:.05;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+ animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;background:var(--accent);transform-origin:right center;transform:scaleX(0);pointer-events:none}
+
+/* ---------- floating pill header (nas-style) ---------- */
+header{position:fixed!important;top:env(safe-area-inset-top,0px);left:0;right:0;transition:padding .45s var(--ease),background-color .45s,border-color .45s,top .45s var(--ease),max-width .45s var(--ease),border-radius .45s;border:1px solid transparent;margin:0 auto;max-width:100%}
+header.scrolled{top:calc(env(safe-area-inset-top,0px) + 12px);max-width:min(1120px,calc(100% - 24px));padding:10px 14px 10px 22px;border-radius:999px;background:rgba(17,21,24,.72);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);border-color:#ffffff14;box-shadow:0 14px 40px #0007}
+header.scrolled .logo{font-size:21px}
+header.scrolled .logo-tagline{display:none}
+header .logo{transition:font-size .45s var(--ease)}
+nav a{position:relative}
+nav a:after{content:"";position:absolute;inset-inline:0;bottom:-5px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+nav a:hover:after{transform:scaleX(1);transform-origin:left}
+
+/* ---------- hero 4B ---------- */
+.hero.h4b{min-height:min(88svh,960px);display:flex;align-items:center;overflow:hidden;position:relative;isolation:isolate}
+.hero.h4b:before{display:none}
+.h4b .hero-media{position:absolute;top:0;bottom:0;right:0;width:60%;overflow:hidden;
+ -webkit-mask-image:linear-gradient(to right,transparent 0,#000 22%);mask-image:linear-gradient(to right,transparent 0,#000 22%);
+ animation:mediaIn 1.4s var(--ease) both}
+.h4b .hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,#090b0e88 12%,transparent 34%),linear-gradient(180deg,#090b0e99 0%,transparent 18%);pointer-events:none}
+.h4b .hero-photo{position:absolute;inset:-4% 0 0 0;width:100%;height:104%;object-fit:cover;object-position:100% 50%;filter:brightness(.9);will-change:transform;animation:photoIn 2.2s var(--ease) both}
+@keyframes mediaIn{from{clip-path:inset(0 0 0 45%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes photoIn{from{transform:scale(1.14)}to{transform:scale(1)}}
+.h4b .hero-glow{position:absolute;z-index:-1;width:46vw;height:46vw;left:-12vw;top:12%;border-radius:50%;background:radial-gradient(circle,#c6ff5414 0%,transparent 62%);filter:blur(10px);animation:drift 14s ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift{to{transform:translate(8vw,6vh) scale(1.15)}}
+.h4b .hero-content{position:relative;z-index:2;width:50%;max-width:none;margin-inline-start:auto;padding:130px 10px 90px clamp(24px,5.5vw,90px)}
+body.en .h4b .hero-content{margin-inline-start:0;margin-inline-end:auto}
+body.en .h4b h1{letter-spacing:-.03em}
+.h4b h1{font-size:clamp(34px,3.9vw,60px);line-height:1.12;letter-spacing:-.035em;margin:18px 0 22px;font-weight:800;text-wrap:balance}
+.h4b h1 .hl{display:block;color:var(--accent);margin-top:.14em}
+.h4b .hero-sub{font-size:clamp(16px,1.35vw,20px);max-width:560px;line-height:1.7;color:#e0e4e1;animation:fadeUp .9s .75s var(--ease) both}
+.h4b .eyebrow{animation:fadeUp .8s .05s var(--ease) both}
+.h4b .cta{animation:fadeUp .9s .95s var(--ease) both}
+@keyframes fadeUp{from{opacity:.0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.split-w .w{display:inline-block;white-space:pre}
+.h4b .split-w .w{animation:wordIn .9s var(--ease) both;animation-delay:calc(var(--i) * 45ms + 180ms)}
+@keyframes wordIn{from{opacity:.08;transform:translateY(.45em) rotate(2deg);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+.rec{position:absolute;z-index:3;right:clamp(18px,3vw,40px);bottom:clamp(18px,4vh,40px);display:flex;align-items:center;gap:8px;font:700 11px Manrope,Arial,sans-serif;letter-spacing:1.6px;color:#e6eae6;direction:ltr;font-variant-numeric:tabular-nums;background:#090b0e66;border:1px solid #ffffff1f;padding:7px 11px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.rec i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.scroll-cue{position:absolute;z-index:3;left:clamp(20px,4vw,60px);bottom:26px;display:flex;align-items:center;gap:10px;font:700 11px Manrope,Arial,sans-serif;letter-spacing:2px;color:#aeb7b8;direction:ltr}
+.scroll-cue span{width:1px;height:42px;background:#ffffff26;position:relative;overflow:hidden}
+.scroll-cue span:after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--accent);animation:cue 1.8s var(--ease-io) infinite}
+@keyframes cue{to{top:100%}}
+
+/* ---------- CTA micro-interactions ---------- */
+.cta{transition:transform .35s var(--ease),box-shadow .35s var(--ease),background-color .3s;will-change:transform}
+.cta:hover{box-shadow:0 10px 30px #c6ff5433}
+.ghost:hover,.footer .cta:hover{box-shadow:none}
+.mtk-buttons a{transition:transform .35s var(--ease),background-color .3s,color .3s}
+.mtk-buttons a:hover{transform:translateY(-2px)}
+
+/* ---------- reel river (marquee of every edited reel) ---------- */
+.river{position:relative;padding:34px 0 46px;overflow:hidden;direction:ltr}
+.river-tilt{transform:rotate(-2.2deg) scale(1.04);display:grid;gap:14px}
+.river-row{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.river-track{display:flex;gap:14px;width:max-content;animation:marq var(--dur,90s) linear infinite}
+.river-row.rev .river-track{animation-direction:reverse}
+.river-row:hover .river-track{animation-play-state:paused}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 7px))}}
+.rc{position:relative;flex:0 0 auto;width:clamp(112px,11vw,158px);aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:0;padding:0;background:var(--card);cursor:pointer;transition:transform .45s var(--ease),box-shadow .45s var(--ease);outline-offset:3px}
+.rc video,.wc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--card)}
+.rc:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px #ffffff14;pointer-events:none}
+.rc:hover,.rc:focus-visible{transform:translateY(-6px) scale(1.04);box-shadow:0 18px 40px #000a}
+.play-dot{position:absolute;inset:auto 10px 10px auto;width:34px;height:34px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transform:scale(.6);opacity:0;transition:transform .35s var(--ease),opacity .3s;pointer-events:none}
+.play-dot:before{content:"";margin-left:3px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #0b1009}
+.rc:hover .play-dot,.rc:focus-visible .play-dot,.wc:hover .play-dot,.wc:focus-visible .play-dot{transform:scale(1);opacity:1}
+.ticker{overflow:hidden;padding:4px 0}
+.ticker-track{display:flex;align-items:center;gap:28px;width:max-content;animation:marq 40s linear infinite reverse;font-weight:800;font-size:clamp(34px,5.4vw,76px);line-height:1.15;letter-spacing:-.03em;white-space:nowrap}
+.ticker-track span{font-family:"MTKHebrew",Heebo,Arial,sans-serif}
+.ticker-track .o{font-family:Manrope,Arial,sans-serif;color:transparent;-webkit-text-stroke:1.2px #f5f5f055}
+.ticker-track b{color:var(--accent);font-size:.5em}
+.river-note{display:block;text-align:center;font-size:13px;color:#8f9a9d;margin-top:26px;direction:rtl}
+body.en .river-note{direction:ltr}
+
+/* ---------- generic reveal (visible resting state, brightens in) ---------- */
+.rv{transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 90ms)}
+.rv.pre{opacity:.32;transform:translateY(34px)}
+.rv.in{opacity:1;transform:none}
+.split-t .w{transition:opacity .8s var(--ease),transform .9s var(--ease),color .8s;transition-delay:calc(var(--i) * 55ms)}
+.split-t.pre .w{opacity:.16;transform:translateY(.35em)}
+.split-t.in .w{opacity:1;transform:none}
+.ink .w{transition:opacity .25s linear}
+.kicker{display:flex;align-items:center;gap:12px;direction:ltr;flex-direction:row-reverse;justify-content:flex-start}
+body.en .kicker{flex-direction:row}
+.kicker:after{content:"";height:1px;width:0;background:var(--accent);opacity:.6;transition:width 1.1s var(--ease) .2s}
+.kicker.in:after{width:56px}
+.media-rv{transition:clip-path 1.3s var(--ease)}
+.media-rv.pre{clip-path:inset(7% 7% 7% 7% round 14px)}
+.media-rv.in{clip-path:inset(0 0 0 0 round 0)}
+.media-rv img{transition:transform 1.6s var(--ease)}
+.media-rv.pre img{transform:scale(1.12)}
+
+/* ---------- problem ---------- */
+#problem .tile{transition:opacity .9s var(--ease),transform .5s var(--ease),border-color .3s}
+#problem .tile .num{transition:transform .9s var(--ease) .25s}
+#problem .tile.pre .num{transform:rotate(-90deg) scale(.4)}
+
+/* ---------- solution: photo + floating reel ---------- */
+.sol-media{position:relative;min-width:0}
+.sol-media>img{display:block}
+.sol-frame{overflow:hidden}
+.float-reel{position:absolute;z-index:2;left:-26px;bottom:-34px;width:clamp(120px,13vw,190px);aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--card);box-shadow:0 24px 60px #000c,0 0 0 1px #ffffff1a;cursor:pointer;border:0;padding:0;will-change:transform}
+.float-reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s}
+.float-reel .lbl{position:absolute;left:10px;right:10px;bottom:10px;display:flex;align-items:center;gap:6px;font:700 10px Manrope,Arial,sans-serif;letter-spacing:1.4px;color:#fff;direction:ltr;text-transform:uppercase}
+.float-reel .lbl i{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.2s steps(2) infinite}
+
+/* ---------- workflow: sticky phone + steps (reddgrow-style) ---------- */
+.flow .steps{counter-reset:none}
+.flow-phone{display:none}
+@media (min-width:1000px) and (min-height:680px){
+ .flow{padding-top:0;padding-bottom:90px}
+ .flow-track{height:calc(100vh + 150vh);position:relative}
+ .flow-pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:6%;align-items:center;padding-top:60px}
+ .flow .steps{grid-template-columns:1fr;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+ .flow .step{display:grid;grid-template-columns:70px minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:baseline;background:none;min-height:0;padding:16px 0 18px;border-bottom:1px solid var(--line);position:relative;opacity:.38;transition:opacity .5s var(--ease)}
+ .flow .step strong{grid-row:1 / span 2;font-size:28px;transition:color .4s}
+ .flow .step h3{margin:0;font-size:22px}
+ .flow .step p{margin:4px 0 0;color:#b8c0c2}
+ .flow .step:after{content:"";position:absolute;bottom:-1px;inset-inline-start:0;height:2px;width:calc(var(--p,0) * 100%);background:var(--accent)}
+ .flow .step.on{opacity:1}
+ .flow .step:not(.on) strong{color:#5b6466}
+ .flow-phone{display:flex;justify-content:center}
+ .phone{position:relative;width:min(300px,30vh);aspect-ratio:9/16;border-radius:34px;padding:10px;background:#0e1113;box-shadow:0 0 0 1px #ffffff1c,0 40px 80px #000c,0 0 120px #c6ff5410}
+ .phone-in{position:relative;width:100%;height:100%;border-radius:25px;overflow:hidden;background:var(--card)}
+ .phone video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
+ .phone video.on{opacity:1;transform:none}
+ .phone-bar{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:flex;gap:4px;direction:ltr}
+ .phone-bar i{flex:1;height:2px;border-radius:2px;background:#ffffff40;overflow:hidden;position:relative}
+ .phone-bar i:after{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(var(--f,0));transform-origin:left}
+ .phone-tag{position:absolute;z-index:2;left:12px;bottom:14px;font:800 12px Manrope,Arial,sans-serif;letter-spacing:1.5px;color:#fff;direction:ltr;background:#090b0e88;padding:6px 10px;border-radius:999px}
+ .phone-tag b{color:var(--accent)}
+}
+
+/* ---------- experience ---------- */
+.experience-big{font-variant-numeric:tabular-nums}
+.experience-card img{transition:transform 1.1s var(--ease),filter .6s}
+.experience-card:hover img{transform:scale(1.07);filter:brightness(.8)}
+.experience-card .cap{transition:transform .5s var(--ease)}
+.experience-card:hover .cap{transform:translateY(-4px)}
+
+/* ---------- packages ---------- */
+.package{transition:opacity .9s var(--ease),transform .5s var(--ease),border-color .3s;position:relative}
+.package:hover{transform:translateY(-6px)}
+@property --ang{syntax:"<angle>";inherits:false;initial-value:0deg}
+.package.featured{border-color:transparent;background:linear-gradient(#1b2418,#1b2418) padding-box,conic-gradient(from var(--ang),var(--accent),#c6ff5411 30%,#c6ff5411 60%,var(--accent)) border-box;border:1px solid transparent;animation:spin 6s linear infinite}
+@keyframes spin{to{--ang:360deg}}
+
+/* ---------- gallery / bts ---------- */
+.gallery img{transition:transform 1.1s var(--ease),filter .5s}
+.gallery>div{overflow:hidden}
+.gallery>div:hover img{transform:scale(1.05)}
+
+/* ---------- work: all reels ---------- */
+#work .section-title{margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{border:1px solid #333c40;background:transparent;color:#dce0df;padding:9px 16px;border-radius:999px;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:background-color .3s,color .3s,border-color .3s}
+.chip sup{font:800 11px Manrope,Arial,sans-serif;color:var(--accent);transition:color .3s}
+.chip:hover{border-color:#6b7a3f}
+.chip[aria-selected="true"]{background:var(--accent);color:#0b1009;border-color:var(--accent)}
+.chip[aria-selected="true"] sup{color:#0b1009}
+.chip:focus-visible,.rc:focus-visible,.wc:focus-visible,.float-reel:focus-visible,.lb button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.work-hint{font-size:13px;color:#8f9a9d;margin:14px 0 0}
+.work-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:18px}
+.wc{margin:0;min-width:0;transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.wc[hidden]{display:none!important}
+.wc.enter{animation:cardIn .7s var(--ease) both;animation-delay:calc(var(--k,0) * 60ms)}
+@keyframes cardIn{from{opacity:.0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:none}}
+.wc button{position:relative;display:block;width:100%;aspect-ratio:9/16;border-radius:12px;overflow:hidden;border:0;padding:0;background:var(--card);cursor:pointer}
+.wc button:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#090b0eaa,transparent 40%);opacity:.0;transition:opacity .4s}
+.wc button:hover:after{opacity:1}
+.wc button video{transition:transform .9s var(--ease)}
+.wc button:hover video{transform:scale(1.05)}
+.wc figcaption{font-size:13px;color:#aeb7b8;padding:10px 2px 0;display:flex;gap:8px;align-items:baseline}
+.wc figcaption b{color:var(--accent);font:800 12px Manrope,Arial,sans-serif}
+.case-head{transition:opacity .4s}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:80;display:grid;grid-template-columns:auto minmax(0,auto) auto;align-items:center;justify-content:center;gap:clamp(8px,3vw,40px);padding:calc(env(safe-area-inset-top,0px) + 56px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 30px) max(16px,env(safe-area-inset-left,0px));background:#090b0ef2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);direction:ltr}
+.lb.show{animation:lbIn .35s var(--ease) both}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+.lb-stage{display:grid;gap:12px;justify-items:center;min-width:0}
+.lb video{height:min(78vh,820px);max-width:100%;aspect-ratio:9/16;border-radius:16px;background:#000;box-shadow:0 30px 80px #000;animation:pop .45s var(--ease) both}
+@keyframes pop{from{transform:scale(.94);opacity:.4}to{transform:none;opacity:1}}
+.lb-cap{font-size:14px;color:#dce0df;text-align:center;direction:rtl}
+body.en .lb-cap{direction:ltr}
+.lb-cap b{color:var(--accent);font:800 12px Manrope,Arial,sans-serif;margin-inline-end:8px}
+.lb button{border:1px solid #ffffff33;background:#15191dcc;color:#fff;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:20px;transition:background-color .3s,color .3s}
+.lb button:hover{background:var(--accent);color:#0b1009}
+.lb-x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---------- contact band: drifting poster wall ---------- */
+.mtk-cta{position:relative;overflow:hidden;isolation:isolate;background:var(--cta-bg)}
+.cta-wall{position:absolute;inset:-20% -10%;z-index:-1;display:grid;gap:12px;align-content:center;transform:rotate(-6deg);opacity:.18;direction:ltr;pointer-events:none}
+.cta-wall .row{display:flex;gap:12px;width:max-content;animation:marq 70s linear infinite}
+.cta-wall .row:nth-child(2){animation-direction:reverse;animation-duration:80s}
+.cta-wall img{width:110px;aspect-ratio:9/16;object-fit:cover;border-radius:10px;display:block}
+.mtk-cta:after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,var(--cta-bg) 30%,#111b23cc 60%,#111b2355 100%)}
+.mtk-cta h2{font-size:clamp(30px,4.4vw,60px)}
+
+/* ---------- small screens ---------- */
+@media (max-width:800px){
+ header.scrolled{padding:8px 12px 8px 16px}
+ .hero.h4b{display:block;min-height:0}
+ .h4b .hero-media{position:relative;width:100%;height:60svh;min-height:360px;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 30%);mask-image:linear-gradient(to top,transparent 0,#000 30%)}
+ .h4b .hero-photo{object-position:100% 45%}
+ .h4b .hero-content{width:auto;margin:-64px 0 0;padding:0 22px 40px}
+ .h4b h1{font-size:clamp(30px,8.6vw,40px);line-height:1.18;letter-spacing:-.02em}
+ .h4b .hero-sub{font-size:16px}
+ .rec{bottom:auto;top:calc(env(safe-area-inset-top,0px) + 74px);right:16px}
+ .scroll-cue{display:none}
+ .river{padding:18px 0 34px}
+ .river-tilt{gap:10px}
+ .river-track{gap:10px}
+ .rc{width:108px;border-radius:12px}
+ @keyframes marq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 5px))}}
+ .float-reel{left:12px;bottom:-24px;width:112px}
+ .work-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;scrollbar-width:none}
+ .work-grid::-webkit-scrollbar{display:none}
+ .wc{flex:0 0 58%;scroll-snap-align:start}
+ .lb{grid-template-columns:1fr;gap:12px}
+ .lb-prev,.lb-next{display:none!important}
+ .lb video{height:min(74vh,700px)}
+ .cta-wall img{width:84px}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+ .grain{display:none}
+ .river-row{overflow-x:auto}
+ .rv.pre,.split-t.pre .w,.media-rv.pre{opacity:1;transform:none;clip-path:none}
+}
+
+/* ===== v4: 8 examples in native format, cursor-following mini reel ===== */
+.river-tilt{gap:18px}
+.rc{width:auto;height:clamp(210px,21vw,320px);aspect-ratio:var(--ar,.5625)}
+.ex-grid{display:flex;flex-direction:column;gap:14px;margin-top:30px}
+.ex-row{display:flex;gap:14px;align-items:flex-start}
+.ex{margin:0;min-width:0;flex:var(--ar) 1 0}
+.ex button{position:relative;display:block;width:100%;aspect-ratio:var(--ar);max-width:100%;border-radius:14px;overflow:hidden;border:0;padding:0;background:var(--card);cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.ex button video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:var(--card);transition:transform .9s var(--ease)}
+.ex button:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px #ffffff14;pointer-events:none}
+.ex button:hover{transform:translateY(-4px);box-shadow:0 18px 40px #000a}
+.ex button:hover video{transform:scale(1.04)}
+.ex button:hover .play-dot,.ex button:focus-visible .play-dot{transform:scale(1);opacity:1}
+.ex button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.lb video.land{height:auto;width:min(86vw,1280px);aspect-ratio:16/9}
+.cursor-reel{position:fixed;left:0;top:0;z-index:75;width:86px;height:86px;border-radius:50%;overflow:hidden;isolation:isolate;pointer-events:none;background:var(--card);
+ box-shadow:0 0 0 2px var(--accent),0 16px 40px #000c,0 0 34px #c6ff5433;opacity:0;scale:.6;transition:opacity .35s var(--ease),scale .45s var(--ease),width .4s var(--ease),height .4s var(--ease);will-change:transform}
+.cursor-reel.on{opacity:1;scale:1}
+.cursor-reel.on.dim{opacity:.55;scale:.86}
+.cursor-reel video{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);object-fit:cover;object-position:50% 45%;border-radius:50%}
+.cursor-reel i{position:absolute;left:calc(50% - 3px);top:7px;z-index:1;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:blink 1.2s steps(2) infinite}
+@media (pointer:fine){ .float-reel{display:none} }
+.float-reel{display:none!important}
+.cursor-reel.dock{transition:opacity .4s var(--ease),scale .45s var(--ease),width .4s var(--ease),height .4s var(--ease),transform .35s var(--ease);left:max(14px,env(safe-area-inset-left,0px));top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);width:68px;height:68px;transition:opacity .4s var(--ease),scale .45s var(--ease),width .4s var(--ease),height .4s var(--ease)}
+@media (max-width:800px){
+ .rc{height:200px}
+ .ex-row{display:contents}
+ .ex-grid{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-20px;padding-inline:20px;scroll-padding-inline:20px;scrollbar-width:none;align-items:center}
+ .ex-grid::-webkit-scrollbar{display:none}
+ .ex{flex:0 0 auto;width:min(calc(var(--ar) * 62svh),86vw);scroll-snap-align:start}
+}
+@media (prefers-reduced-motion:reduce){ .cursor-reel{display:none} }
+.lb-cap{direction:ltr!important;font:700 12px Manrope,Arial,sans-serif;letter-spacing:2px;color:#aeb7b8}
+.lb-cap b{margin-inline-end:6px}
+
+/* ---------- floating WhatsApp button: phones and touch screens only ---------- */
+.wa-fab{display:none}
+@media (max-width:900px),(pointer:coarse){
+ .wa-fab{display:grid;place-items:center;position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 18px);z-index:76;width:58px;height:58px;border-radius:50%;background:var(--accent);color:#0b0f08;text-decoration:none;
+  box-shadow:0 12px 30px #000b,0 0 22px #c6ff5440;opacity:0;transform:translateY(18px) scale(.8);pointer-events:none;transition:opacity .35s var(--ease),transform .45s var(--ease);-webkit-tap-highlight-color:transparent}
+ .wa-fab.on{opacity:1;transform:none;pointer-events:auto}
+ .wa-fab svg{width:29px;height:29px;display:block}
+ .wa-fab:before{content:"";position:absolute;inset:0;border-radius:50%;animation:waPulse 2.8s ease-out infinite}
+ .wa-fab:active{transform:scale(.92)}
+}
+@keyframes waPulse{0%{box-shadow:0 0 0 0 #c6ff5470}70%{box-shadow:0 0 0 16px #c6ff5400}100%{box-shadow:0 0 0 0 #c6ff5400}}
+@media (prefers-reduced-motion:reduce){ .wa-fab:before{animation:none} .wa-fab{transition:opacity .2s} }
+
+/* package sub-note (shoot day) */
+.package .pkg-note{margin:-6px 0 14px;font-size:14px;line-height:1.5;color:#9aa6aa}
+/* package minimum-term note */
+.package .pkg-min{margin:6px 0 22px;font-size:13.5px;line-height:1.55;color:#9aa6aa}
+
+/* ---------- testimonials ---------- */
+.voices .section-title{max-width:760px}
+.voice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px;align-items:stretch}
+.voice{position:relative;margin:0;display:flex;flex-direction:column;gap:26px;padding:34px 30px 28px;border-radius:18px;background:linear-gradient(160deg,#171c20,#111417 70%);border:1px solid #262e33;overflow:hidden;
+ transition:transform .5s var(--ease),border-color .4s,box-shadow .5s var(--ease)}
+.voice:before{content:"";position:absolute;inset:auto -30% -55% auto;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#c6ff5426,transparent 70%);pointer-events:none;transition:opacity .5s;opacity:.55}
+.voice:hover{transform:translateY(-6px);border-color:#c6ff5466;box-shadow:0 22px 50px #000a}
+.voice:hover:before{opacity:1}
+.voice:nth-child(2){margin-top:34px}
+.voice .vq{width:46px;height:auto;color:var(--accent);filter:drop-shadow(0 0 14px #c6ff5455)}
+.voice blockquote{margin:0;flex:1;font-size:clamp(18px,1.55vw,22px);line-height:1.6;letter-spacing:-.01em;color:var(--white);font-weight:500}
+.voice.short blockquote{font-size:clamp(24px,2.3vw,32px);line-height:1.35;font-weight:700;letter-spacing:-.02em}
+.voice figcaption{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid #ffffff14}
+.voice .vav{flex:0 0 auto;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#c6ff5414;border:1.5px solid var(--accent);color:var(--accent);font-weight:800;font-size:15px;letter-spacing:.02em}
+.voice .vwho{display:flex;flex-direction:column;gap:3px;min-width:0}
+.voice .vwho b{font-size:16px;font-weight:700;color:var(--white)}
+.voice .vwho small{font-size:13.5px;color:#9aa6aa;line-height:1.4}
+@media (max-width:900px){
+ .voice-grid{grid-template-columns:1fr;gap:14px;margin-top:32px}
+ .voice:nth-child(2){margin-top:0}
+ .voice{padding:28px 24px 22px;gap:20px}
+}
+
+/* ---------- BTS films: poster + play ---------- */
+.bts-v{position:relative;border-radius:6px;overflow:hidden;background:#15191d}
+.bts-v video{border-radius:0!important}
+.bts-v:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#090b0e99);pointer-events:none;transition:opacity .35s}
+.bts-play{position:absolute;inset:0;margin:auto;z-index:2;width:62px;height:62px;border-radius:50%;border:0;padding:0;cursor:pointer;display:grid;place-items:center;background:var(--accent);color:#0b0f08;
+ box-shadow:0 10px 30px #000a,0 0 0 8px #c6ff5422;transition:transform .35s var(--ease),opacity .3s,box-shadow .35s}
+.bts-play svg{width:26px;height:26px;margin-inline-start:3px}
+.bts-play:hover,.bts-play:focus-visible{transform:scale(1.08);box-shadow:0 10px 30px #000a,0 0 0 12px #c6ff5430;outline:none}
+.bts-v.on .bts-play,.bts-v.on:after{opacity:0;pointer-events:none}
+
+/* hero intro line + 5 capability cards */
+.h4b .hero-sub .hero-me{display:block;color:var(--white);font-weight:600;margin-bottom:2px}
+#experience .experience-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:1100px){ #experience .experience-grid{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:800px){ #experience .experience-grid{grid-template-columns:repeat(2,minmax(0,1fr))} #experience .experience-card.exp-ai{grid-column:1 / -1} }
+</style></head><body><header><a class="logo brand-lockup" href="#top">MTK <b>VISUALS</b><span class="logo-tagline">CONTENT · VIDEO · STRATEGY</span></a><nav><a data-en="Solution" data-he="הפתרון" href="#solution">הפתרון</a><a data-en="Work" data-he="עבודות" href="#reels">עבודות</a><a data-en="Experience" data-he="ניסיון" href="#experience">ניסיון</a><a data-en="Packages" data-he="מסלולים" href="#pricing">מסלולים</a><button class="lang" id="switch" onclick="window.mtkToggleLanguage();return false;" type="button">EN</button></nav></header>
+<main><section class="hero h4b" id="top"><div class="hero-media"><img alt="מתן מצלם במצלמת קולנוע בצילום לילה" class="hero-photo" fetchpriority="high" src="assets/img/hero-4b.webp"/><div class="rec" aria-hidden="true"><i></i>REC <span class="tc">00:00:00:00</span></div></div><div class="hero-glow" aria-hidden="true"></div><div class="hero-content"><div class="eyebrow">CONTENT · VIDEO · STRATEGY</div><h1><span class="split-w" data-en="Your business doesn’t need more social media videos." data-he="העסק שלכם לא צריך עוד סרטונים לרשתות החברתיות.">העסק שלכם לא צריך עוד סרטונים לרשתות החברתיות.</span> <span class="hl split-w" data-en="It needs results." data-he="הוא צריך תוצאות.">הוא צריך תוצאות.</span></h1><p class="hero-sub"><span class="hero-me" data-en="I’m Matan Turkia — cinematographer, editor and producer." data-he="אני מתן טורקיה, צלם, עורך ומפיק.">אני מתן טורקיה, צלם, עורך ומפיק.</span> <span data-en="I combine business thinking, creative, video production and professional editing to create content that doesn’t just look great — it serves a goal." data-he="ואני משלב חשיבה עסקית, קריאייטיב, הפקת וידאו ועריכה מקצועית כדי ליצור תוכן שלא רק נראה מצוין — אלא משרת מטרה">ואני משלב חשיבה עסקית, קריאייטיב, הפקת וידאו ועריכה מקצועית כדי ליצור תוכן שלא רק נראה מצוין — אלא משרת מטרה</span></p><a class="cta" data-en="Build your next content month →" data-he="בואו נבנה את החודש הבא ←" href="https://wa.me/972503342270?text=היי%20מתן%2C%20אשמח%20לקבוע%20שיחת%20היכרות">בואו נבנה את החודש הבא ←</a></div><a class="scroll-cue" href="#reels" aria-label="גלילה לסרטונים"><span></span>SCROLL</a></section>
+<section class="river" id="reels" aria-label="דוגמאות"><div class="river-tilt"><div class="river-row" style="--dur:118s"><div class="river-track"><button class="rc" type="button" data-open="alma-01" data-slug="alma-01" data-full="assets/reels/alma-01.mp4" data-poster="assets/reels/alma-01.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/alma-01.webp" data-src="assets/reels/p/alma-01.mp4" data-slug="alma-01"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="finnegan-07" data-slug="finnegan-07" data-full="assets/reels/finnegan-07.mp4" data-poster="assets/reels/finnegan-07.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/finnegan-07.webp" data-src="assets/reels/p/finnegan-07.mp4" data-slug="finnegan-07"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="x-charity" data-slug="x-charity" data-full="assets/reels/x-charity.mp4" data-poster="assets/reels/x-charity.webp" data-ar="1.7778" style="--ar:1.7778" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/x-charity.webp" data-src="assets/reels/p/x-charity.mp4" data-slug="x-charity"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="singles-v" data-slug="singles-v" data-full="assets/reels/singles-v.mp4" data-poster="assets/reels/singles-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/singles-v.webp" data-src="assets/reels/p/singles-v.mp4" data-slug="singles-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="discount-05" data-slug="discount-05" data-full="assets/reels/discount-05.mp4" data-poster="assets/reels/discount-05.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/discount-05.webp" data-src="assets/reels/p/discount-05.mp4" data-slug="discount-05"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="footlocker-v" data-slug="footlocker-v" data-full="assets/reels/footlocker-v.mp4" data-poster="assets/reels/footlocker-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/footlocker-v.webp" data-src="assets/reels/p/footlocker-v.mp4" data-slug="footlocker-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="tnuva-l" data-slug="tnuva-l" data-full="assets/reels/tnuva-l.mp4" data-poster="assets/reels/tnuva-l.webp" data-ar="1.7778" style="--ar:1.7778" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/tnuva-l.webp" data-src="assets/reels/p/tnuva-l.mp4" data-slug="tnuva-l"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="royoren-04" data-slug="royoren-04" data-full="assets/reels/royoren-04.mp4" data-poster="assets/reels/royoren-04.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/royoren-04.webp" data-src="assets/reels/p/royoren-04.mp4" data-slug="royoren-04"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="wedding-v" data-slug="wedding-v" data-full="assets/reels/wedding-v.mp4" data-poster="assets/reels/wedding-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/wedding-v.webp" data-src="assets/reels/p/wedding-v.mp4" data-slug="wedding-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="x-interviews" data-slug="x-interviews" data-full="assets/reels/x-interviews.mp4" data-poster="assets/reels/x-interviews.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/x-interviews.webp" data-src="assets/reels/p/x-interviews.mp4" data-slug="x-interviews"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="clinic-v" data-slug="clinic-v" data-full="assets/reels/clinic-v.mp4" data-poster="assets/reels/clinic-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/clinic-v.webp" data-src="assets/reels/p/clinic-v.mp4" data-slug="clinic-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="surf-l" data-slug="surf-l" data-full="assets/reels/surf-l.mp4" data-poster="assets/reels/surf-l.webp" data-ar="1.7778" style="--ar:1.7778" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/surf-l.webp" data-src="assets/reels/p/surf-l.mp4" data-slug="surf-l"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="sgallery-v" data-slug="sgallery-v" data-full="assets/reels/sgallery-v.mp4" data-poster="assets/reels/sgallery-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/sgallery-v.webp" data-src="assets/reels/p/sgallery-v.mp4" data-slug="sgallery-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="alma-05" data-slug="alma-05" data-full="assets/reels/alma-05.mp4" data-poster="assets/reels/alma-05.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/alma-05.webp" data-src="assets/reels/p/alma-05.mp4" data-slug="alma-05"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="finnegan-06" data-slug="finnegan-06" data-full="assets/reels/finnegan-06.mp4" data-poster="assets/reels/finnegan-06.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/finnegan-06.webp" data-src="assets/reels/p/finnegan-06.mp4" data-slug="finnegan-06"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="alma-01" data-slug="alma-01" data-full="assets/reels/alma-01.mp4" data-poster="assets/reels/alma-01.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/alma-01.webp" data-src="assets/reels/p/alma-01.mp4" data-slug="alma-01"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="finnegan-07" data-slug="finnegan-07" data-full="assets/reels/finnegan-07.mp4" data-poster="assets/reels/finnegan-07.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/finnegan-07.webp" data-src="assets/reels/p/finnegan-07.mp4" data-slug="finnegan-07"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="x-charity" data-slug="x-charity" data-full="assets/reels/x-charity.mp4" data-poster="assets/reels/x-charity.webp" data-ar="1.7778" style="--ar:1.7778" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/x-charity.webp" data-src="assets/reels/p/x-charity.mp4" data-slug="x-charity"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="singles-v" data-slug="singles-v" data-full="assets/reels/singles-v.mp4" data-poster="assets/reels/singles-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/singles-v.webp" data-src="assets/reels/p/singles-v.mp4" data-slug="singles-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="discount-05" data-slug="discount-05" data-full="assets/reels/discount-05.mp4" data-poster="assets/reels/discount-05.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/discount-05.webp" data-src="assets/reels/p/discount-05.mp4" data-slug="discount-05"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="footlocker-v" data-slug="footlocker-v" data-full="assets/reels/footlocker-v.mp4" data-poster="assets/reels/footlocker-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/footlocker-v.webp" data-src="assets/reels/p/footlocker-v.mp4" data-slug="footlocker-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="tnuva-l" data-slug="tnuva-l" data-full="assets/reels/tnuva-l.mp4" data-poster="assets/reels/tnuva-l.webp" data-ar="1.7778" style="--ar:1.7778" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/tnuva-l.webp" data-src="assets/reels/p/tnuva-l.mp4" data-slug="tnuva-l"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="royoren-04" data-slug="royoren-04" data-full="assets/reels/royoren-04.mp4" data-poster="assets/reels/royoren-04.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/royoren-04.webp" data-src="assets/reels/p/royoren-04.mp4" data-slug="royoren-04"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="wedding-v" data-slug="wedding-v" data-full="assets/reels/wedding-v.mp4" data-poster="assets/reels/wedding-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/wedding-v.webp" data-src="assets/reels/p/wedding-v.mp4" data-slug="wedding-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="x-interviews" data-slug="x-interviews" data-full="assets/reels/x-interviews.mp4" data-poster="assets/reels/x-interviews.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/x-interviews.webp" data-src="assets/reels/p/x-interviews.mp4" data-slug="x-interviews"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="clinic-v" data-slug="clinic-v" data-full="assets/reels/clinic-v.mp4" data-poster="assets/reels/clinic-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/clinic-v.webp" data-src="assets/reels/p/clinic-v.mp4" data-slug="clinic-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="surf-l" data-slug="surf-l" data-full="assets/reels/surf-l.mp4" data-poster="assets/reels/surf-l.webp" data-ar="1.7778" style="--ar:1.7778" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/surf-l.webp" data-src="assets/reels/p/surf-l.mp4" data-slug="surf-l"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="sgallery-v" data-slug="sgallery-v" data-full="assets/reels/sgallery-v.mp4" data-poster="assets/reels/sgallery-v.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/sgallery-v.webp" data-src="assets/reels/p/sgallery-v.mp4" data-slug="sgallery-v"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="alma-05" data-slug="alma-05" data-full="assets/reels/alma-05.mp4" data-poster="assets/reels/alma-05.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/alma-05.webp" data-src="assets/reels/p/alma-05.mp4" data-slug="alma-05"></video><span class="play-dot"></span></button><button class="rc" type="button" data-open="finnegan-06" data-slug="finnegan-06" data-full="assets/reels/finnegan-06.mp4" data-poster="assets/reels/finnegan-06.webp" data-ar="0.5625" style="--ar:0.5625" aria-label="צפייה בסרטון עם סאונד" aria-hidden="true" tabindex="-1"><video class="pv" muted playsinline loop preload="none" poster="assets/reels/finnegan-06.webp" data-src="assets/reels/p/finnegan-06.mp4" data-slug="finnegan-06"></video><span class="play-dot"></span></button></div></div></div></section>
+<section class="container" id="problem"><div class="kicker">01 / THE PROBLEM</div><h2 class="section-title" data-en="Everyone needs video. Nobody has time to produce it." data-he="כולם צריכים וידאו. לאף אחד אין זמן להפיק אותו.">כולם צריכים וידאו. לאף אחד אין זמן להפיק אותו.</h2><p class="lead" data-en="Another post to publish. Another campaign missing assets. Another shoot postponed. When every video is a new project, momentum disappears and teams burn out." data-he="עוד פוסט שצריך לעלות. עוד קמפיין בלי חומרים. עוד יום צילום שנדחה. כשהפקת תוכן היא פרויקט חדש בכל פעם — הרצף נשבר והצוות נשחק.">עוד פוסט שצריך לעלות. עוד קמפיין בלי חומרים. עוד יום צילום שנדחה. כשהפקת תוכן היא פרויקט חדש בכל פעם — הרצף נשבר והצוות נשחק.</p><div class="grid3"><article class="tile"><span aria-hidden="true" class="num">✕</span><h3 data-en="No consistency" data-he="אין רצף">אין רצף</h3><p data-en="Content happens when there's time, not as a reliable marketing engine." data-he="תוכן נוצר רק כשיש זמן — ולא כחלק ממנוע שיווק קבוע.">תוכן נוצר רק כשיש זמן — ולא כחלק ממנוע שיווק קבוע.</p></article><article class="tile"><span aria-hidden="true" class="num">✕</span><h3 data-en="Too much coordination" data-he="יותר מדי תיאומים">יותר מדי תיאומים</h3><p data-en="Vendors, schedules, approvals and revisions consume marketing time." data-he="ספקים, לו״ז, אישורים, גרסאות ותיקונים שמעמיסים על צוות השיווק.">ספקים, לו״ז, אישורים, גרסאות ותיקונים שמעמיסים על צוות השיווק.</p></article><article class="tile"><span aria-hidden="true" class="num">✕</span><h3 data-en="No clear output plan" data-he="אין צפי ברור">אין צפי ברור</h3><p data-en="It's hard to forecast how many assets will be ready — and when." data-he="קשה לתכנן מראש כמה נכסי תוכן יתקבלו ומתי יהיו מוכנים.">קשה לתכנן מראש כמה נכסי תוכן יתקבלו ומתי יהיו מוכנים.</p></article></div></section>
+<section class="container split" id="solution"><div><div class="kicker">02 / THE SOLUTION</div><h2 class="section-title" data-en="Understand the business first. Roll camera second." data-he="קודם מבינים את העסק. אחר כך מדליקים מצלמה.">קודם מבינים את העסק. אחר כך מדליקים מצלמה.</h2><p class="lead" data-en="I learn your business as if it were my own: ask questions, understand the challenge and audience, think alongside you and suggest the right solution — even when it is not the first one you imagined. You get quality, experience, speed and flexibility without an in-house video team. Above all: content with clear business value." data-he="אני לומד את העסק כאילו הוא שלי: שואל שאלות, מבין את הבעיה ואת קהל היעד, חושב יחד איתכם ומציע את הפתרון הנכון — גם כשזה לא הפתרון הראשון שחשבתם עליו. אתם מקבלים איכות וניסיון, מקצועיות, מהירות וגמישות, בלי לגייס צוות צילום ועריכה פנימי. מעל הכול: תוכן עם ערך עסקי ברור.">אני לומד את העסק כאילו הוא שלי: שואל שאלות, מבין את הבעיה ואת קהל היעד, חושב יחד איתכם ומציע את הפתרון הנכון — גם כשזה לא הפתרון הראשון שחשבתם עליו. אתם מקבלים איכות וניסיון, מקצועיות, מהירות וגמישות, בלי לגייס צוות צילום ועריכה פנימי. מעל הכול: תוכן עם ערך עסקי ברור.</p><a class="cta" data-en="Explore packages →" data-he="למסלולים ←" href="#pricing">למסלולים ←</a></div><div class="sol-media"><div class="sol-frame"><img alt="Matan filming on location" loading="lazy" src="assets/img/solution.webp"/></div><button class="float-reel" type="button" aria-label="צפייה בסרטונים עם סאונד"><video class="fv" muted playsinline preload="none" poster="assets/reels/alma-01.webp" data-src="assets/reels/p/alma-01.mp4" data-slug="alma-01"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/finnegan-07.webp" data-src="assets/reels/p/finnegan-07.mp4" data-slug="finnegan-07"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/singles-v.webp" data-src="assets/reels/p/singles-v.mp4" data-slug="singles-v"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/discount-05.webp" data-src="assets/reels/p/discount-05.mp4" data-slug="discount-05"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/footlocker-v.webp" data-src="assets/reels/p/footlocker-v.mp4" data-slug="footlocker-v"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/royoren-04.webp" data-src="assets/reels/p/royoren-04.mp4" data-slug="royoren-04"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/wedding-v.webp" data-src="assets/reels/p/wedding-v.mp4" data-slug="wedding-v"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/x-interviews.webp" data-src="assets/reels/p/x-interviews.mp4" data-slug="x-interviews"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/clinic-v.webp" data-src="assets/reels/p/clinic-v.mp4" data-slug="clinic-v"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/sgallery-v.webp" data-src="assets/reels/p/sgallery-v.mp4" data-slug="sgallery-v"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/alma-05.webp" data-src="assets/reels/p/alma-05.mp4" data-slug="alma-05"></video><video class="fv" muted playsinline preload="none" poster="assets/reels/finnegan-06.webp" data-src="assets/reels/p/finnegan-06.mp4" data-slug="finnegan-06"></video><span class="lbl"><i></i>NOW PLAYING</span></button></div></section>
+<section class="container flow" id="workflow"><div class="flow-track"><div class="flow-pin"><div class="flow-copy"><div class="kicker">03 / THE WORKFLOW</div><h2 class="section-title" data-en="One workflow. Four steps." data-he="תהליך אחד. ארבעה שלבים.">תהליך אחד. ארבעה שלבים.</h2><div class="steps"><div class="step"><strong>01</strong><h3 data-en="Plan" data-he="מתכננים">מתכננים</h3><p data-en="Goals, audiences and content ideas" data-he="מטרות, קהלים ורעיונות לתוכן">מטרות, קהלים ורעיונות לתוכן</p></div><div class="step"><strong>02</strong><h3 data-en="Shoot" data-he="מצלמים">מצלמים</h3><p data-en="One focused production day" data-he="יום צילום מרוכז ואפקטיבי">יום צילום מרוכז ואפקטיבי</p></div><div class="step"><strong>03</strong><h3 data-en="Edit" data-he="עורכים">עורכים</h3><p data-en="Short stories, captions and formats" data-he="סיפורים קצרים, כתוביות ופורמטים">סיפורים קצרים, כתוביות ופורמטים</p></div><div class="step"><strong>04</strong><h3 data-en="Ready to publish" data-he="מוכן לפרסום">מוכן לפרסום</h3><p data-en="Ready-to-use assets for your channels" data-he="קבצים מוכנים להפצה בערוצים שלכם">קבצים מוכנים להפצה בערוצים שלכם</p></div></div></div><div class="flow-phone" aria-hidden="true"><div class="phone"><div class="phone-in"><video muted playsinline loop preload="none" poster="assets/reels/royoren-04.webp" data-src="assets/reels/p/royoren-04.mp4"></video><video muted playsinline loop preload="none" poster="assets/img/posters/bts-01.webp" data-src="assets/video/bts-01.mp4"></video><video muted playsinline loop preload="none" poster="assets/reels/alma-01.webp" data-src="assets/reels/p/alma-01.mp4"></video><video muted playsinline loop preload="none" poster="assets/reels/discount-05.webp" data-src="assets/reels/p/discount-05.mp4"></video><div class="phone-bar"><i></i><i></i><i></i><i></i></div><div class="phone-tag">STEP <b>01</b></div></div></div></div></div></div><div class="stats outcomes"><div class="stat"><b data-en="Goal" data-he="יעד">יעד</b><p data-en="A clear business goal every month, and every video works toward it." data-he="מטרה עסקית ברורה לכל חודש, וכל סרטון עובד בשבילה.">מטרה עסקית ברורה לכל חודש, וכל סרטון עובד בשבילה.</p></div><div class="stat"><b data-en="Flow" data-he="רצף">רצף</b><p data-en="Content that keeps coming all month, not only when there is time." data-he="תוכן שממשיך לעלות לאורך כל החודש, ולא רק כשיש זמן.">תוכן שממשיך לעלות לאורך כל החודש, ולא רק כשיש זמן.</p></div><div class="stat"><b data-en="Review" data-he="בקרה">בקרה</b><p data-en="An end-of-month review: what moved forward and what comes next." data-he="סיכום בסוף החודש: מה התקדם, ומה עושים בחודש הבא.">סיכום בסוף החודש: מה התקדם, ומה עושים בחודש הבא.</p></div></div></section>
+
+<section class="container" id="experience"><div class="kicker">04 / THE EXPERIENCE BEHIND THE LENS</div><div class="experience-big">12<span data-en="YEARS" data-he="שנות ניסיון" style="font-size:.22em;letter-spacing:0;vertical-align:middle;margin-inline-start:12px">שנות ניסיון</span></div><h2 class="section-title" data-en="Behind the lens. A creator’s eye. A partner’s mindset." data-he="מאחורי העדשה. חשיבה של יוצר. עבודה של שותף.">מאחורי העדשה. חשיבה של יוצר. עבודה של שותף.</h2><p class="lead" data-en="I don’t just show up, shoot and leave. I connect with your story and goals as if the business were my own, learn the field, bring creative ideas and keep thinking about the result after the shoot. A committed, hands-on partner with 12 years of experience taking ideas from concept to final edit." data-he="אני לא מגיע רק לצלם וללכת. אני מתחבר לסיפור ולמטרות כאילו העסק הוא שלי, לומד את התחום לעומק, מעלה רעיונות יצירתיים וממשיך לחשוב על התוצאה גם אחרי יום הצילום. שותף מעורב ואכפתי, עם ניסיון של 12 שנים ויכולת להוציא רעיון לפועל מקצה לקצה.">אני לא מגיע רק לצלם וללכת. אני מתחבר לסיפור ולמטרות כאילו העסק הוא שלי, לומד את התחום לעומק, מעלה רעיונות יצירתיים וממשיך לחשוב על התוצאה גם אחרי יום הצילום. שותף מעורב ואכפתי, עם ניסיון של 12 שנים ויכולת להוציא רעיון לפועל מקצה לקצה.</p><div class="experience-grid"><article class="experience-card"><img alt="Matan filming a live event" loading="lazy" src="assets/img/exp-tv.webp"/><div class="cap"><h3>TV &amp; COMMERCIAL</h3><p data-en="Television, commercials and live shows" data-he="טלוויזיה, פרסומות והופעות">טלוויזיה, פרסומות והופעות</p></div></article><article class="experience-card"><img alt="Matan operating a professional camera" loading="lazy" src="assets/img/exp-camera.webp"/><div class="cap"><h3>CAMERA &amp; GIMBAL</h3><p data-en="Professional camera systems and gimbals" data-he="מגוון מערכות צילום וגימבל">מגוון מערכות צילום וגימבל</p></div></article><article class="experience-card"><img alt="מתן מצלם באמצעות רחפן בהרים" loading="lazy" src="assets/img/exp-drone.webp"/><div class="cap"><h3>LICENSED DRONE</h3><p data-en="Licensed aerial drone filming" data-he="צילום אווירי עם רישיון רחפן">צילום אווירי עם רישיון רחפן</p></div></article><article class="experience-card"><img alt="Underwater filming" loading="lazy" src="assets/img/exp-underwater.webp"/><div class="cap"><h3>UNDERWATER</h3><p data-en="Underwater filming with dedicated equipment" data-he="צילום תת־ימי עם ציוד ייעודי">צילום תת־ימי עם ציוד ייעודי</p></div></article><article class="experience-card exp-ai"><img alt="AI editing timeline" loading="lazy" src="assets/img/exp-ai.webp"/><div class="cap"><h3>AI EDITING</h3><p data-en="Advanced editing with AI tools" data-he="עריכה מתקדמת בשילוב כלי AI">עריכה מתקדמת בשילוב כלי AI</p></div></article></div><div class="experience-end" data-en="Concept. Production. Editing. Business-ready video. End to end." data-he="רעיון. צילום. עריכה. תוצר מוכן לעסק. מקצה לקצה.">רעיון. צילום. עריכה. תוצר מוכן לעסק. מקצה לקצה.</div></section><section class="container voices" id="voices"><div class="kicker">05 / KIND WORDS</div><h2 class="section-title" data-en="From the people I work with." data-he="מה אומרים מי שעבדו איתי.">מה אומרים מי שעבדו איתי.</h2><div class="voice-grid"><figure class="voice short"><svg class="vq" viewBox="0 0 48 36" aria-hidden="true"><path fill="currentColor" d="M0 36V22.5C0 9.6 6.1 2.1 18.2 0l2 4.6C13.6 6.4 10.4 10.5 10 17h9v19H0zm27 0V22.5C27 9.6 33.1 2.1 45.2 0l2 4.6C40.6 6.4 37.4 10.5 37 17h9v19H27z"/></svg><blockquote data-en="Matan, everything you do is gold. Nothing more to say." data-he="מתן, כל מה שאתה עושה זהב. אין מה להגיד.">מתן, כל מה שאתה עושה זהב. אין מה להגיד.</blockquote><figcaption><span class="vav" aria-hidden="true">עד</span><span class="vwho"><b data-en="Alma Dahan" data-he="עלמה דהן">עלמה דהן</b><small data-en="Co-CEO &amp; Head of Social" data-he="מנכ״לית שותפה ואחראית סושיאל">מנכ״לית שותפה ואחראית סושיאל</small></span></figcaption></figure><figure class="voice"><svg class="vq" viewBox="0 0 48 36" aria-hidden="true"><path fill="currentColor" d="M0 36V22.5C0 9.6 6.1 2.1 18.2 0l2 4.6C13.6 6.4 10.4 10.5 10 17h9v19H0zm27 0V22.5C27 9.6 33.1 2.1 45.2 0l2 4.6C40.6 6.4 37.4 10.5 37 17h9v19H27z"/></svg><blockquote data-en="Matan, you champ — thank you for the hard, professional work. Always great to see you on set, and I know I can always count on you for an excellent result." data-he="מתן האלוף, תודה רבה על העבודה הקשה והמקצועית. שמח מאוד לראות אותך על הסט, ויודע שתמיד אפשר לסמוך עליך ולקבל תוצאה מצוינת.">מתן האלוף, תודה רבה על העבודה הקשה והמקצועית. שמח מאוד לראות אותך על הסט, ויודע שתמיד אפשר לסמוך עליך ולקבל תוצאה מצוינת.</blockquote><figcaption><span class="vav" aria-hidden="true">אל</span><span class="vwho"><b data-en="Oren Lev Ari" data-he="אורן לב ארי">אורן לב ארי</b><small data-en="Head Content Director" data-he="במאי תוכן ראשי">במאי תוכן ראשי</small></span></figcaption></figure><figure class="voice"><svg class="vq" viewBox="0 0 48 36" aria-hidden="true"><path fill="currentColor" d="M0 36V22.5C0 9.6 6.1 2.1 18.2 0l2 4.6C13.6 6.4 10.4 10.5 10 17h9v19H0zm27 0V22.5C27 9.6 33.1 2.1 45.2 0l2 4.6C40.6 6.4 37.4 10.5 37 17h9v19H27z"/></svg><blockquote data-en="Matan, great footage! Everything spot on, perfect — the sound too. Thank you so much!" data-he="מתן, צילומים נהדרים! הכל פיקס, מושלם, וגם הסאונד. תודה רבה, תודה תודה.">מתן, צילומים נהדרים! הכל פיקס, מושלם, וגם הסאונד. תודה רבה, תודה תודה.</blockquote><figcaption><span class="vav" aria-hidden="true">טר</span><span class="vwho"><b data-en="Tal Rotem" data-he="טל רותם">טל רותם</b><small data-en="Content Lead &amp; Director" data-he="אחראית תוכן ובמאית">אחראית תוכן ובמאית</small></span></figcaption></figure></div></section><section class="container" id="pricing"><div class="kicker">06 / PACKAGES</div><h2 class="section-title" data-en="Choose how far your content goes." data-he="בחרו כמה רחוק לקחת את התוכן שלכם.">בחרו כמה רחוק לקחת את התוכן שלכם.</h2><p class="lead" data-en="Start with a single shooting day, or hand your entire monthly video workflow over to me." data-he="אפשר להתחיל מיום צילום אחד, או להעביר אליי את כל תהליך הווידאו החודשי.">אפשר להתחיל מיום צילום אחד, או להעביר אליי את כל תהליך הווידאו החודשי.</p><div class="packages"><article class="package"><span class="tag">SHOOTING DAY</span><h3 data-en="Shooting day" data-he="יום צילום">יום צילום</h3><p class="pkg-note" data-en="(Best suited to conferences and events)" data-he="(מתאים בעיקר לכנסים ואירועים)">(מתאים בעיקר לכנסים ואירועים)</p><div class="price">₪5,500 <small data-en="+ VAT" data-he="+ מע״מ">+ מע״מ</small></div><ul><li data-en="Scoping call by phone" data-he="פגישת אפיון טלפונית">פגישת אפיון טלפונית</li><li data-en="Shooting day, up to 8 hours" data-he="יום צילום עד 8 שעות">יום צילום עד 8 שעות</li><li data-en="Raw footage delivery" data-he="מסירת חומרי הגלם">מסירת חומרי הגלם</li><li data-en="Edited highlights video in two formats (vertical, horizontal)" data-he="סרטון היילייטס ערוך לשני פורמטים (אורך, רוחב)">סרטון היילייטס ערוך לשני פורמטים (אורך, רוחב)</li><li data-en="One revision round" data-he="סבב תיקונים אחד">סבב תיקונים אחד</li></ul><a class="cta" data-track="pkg-shooting-day" data-en="Book a date →" data-he="קובעים תאריך ←" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%AA%D7%90%D7%A8%D7%99%D7%9A%20%D7%9C%D7%99%D7%95%D7%9D%20%D7%A6%D7%99%D7%9C%D7%95%D7%9D">קובעים תאריך ←</a></article><article class="package featured"><span class="tag">CONTENT ENGINE</span><h3 data-en="Monthly Content" data-he="תוכן חודשי">תוכן חודשי</h3><div class="price">₪13,200 <small data-en="+ VAT / month" data-he="+ מע״מ / חודש">+ מע״מ / חודש</small></div><ul><li data-en="Monthly planning meeting and a monthly goal" data-he="פגישת אפיון חודשית וקביעת יעד חודשי">פגישת אפיון חודשית וקביעת יעד חודשי</li><li data-en="Shooting day, up to 8 hours" data-he="יום צילום עד 8 שעות">יום צילום עד 8 שעות</li><li data-en="12–14 edited videos, in the formats that best serve the goal" data-he="עריכת 12-14 סרטונים בפורמטים השונים שיתאימו לקידום המטרה">עריכת 12-14 סרטונים בפורמטים השונים שיתאימו לקידום המטרה</li><li data-en="Raw footage delivery" data-he="מסירת חומרי הגלם">מסירת חומרי הגלם</li><li data-en="Two revision rounds" data-he="שני סבבי תיקון">שני סבבי תיקון</li><li data-en="Monthly summary: what worked, and what we change next month" data-he="סיכום חודשי: מה עבד, ומה משנים בחודש הבא">סיכום חודשי: מה עבד, ומה משנים בחודש הבא</li></ul><p class="pkg-min" data-en="*Minimum 3 months, to build a continuous workflow" data-he="*מינימום 3 חודשים על מנת לייצר תהליך עבודה רציף">*מינימום 3 חודשים על מנת לייצר תהליך עבודה רציף</p><a class="cta" data-track="pkg-monthly" data-en="Let&#x27;s talk →" data-he="בואו נדבר ←" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%94%20%D7%9C%D7%92%D7%91%D7%99%20%D7%AA%D7%95%D7%9B%D7%9F%20%D7%97%D7%95%D7%93%D7%A9%D7%99">בואו נדבר ←</a></article><article class="package"><span class="tag">VIDEO DEPARTMENT</span><h3 data-en="Video Department" data-he="מחלקת וידאו">מחלקת וידאו</h3><div class="price">₪22,100 <small data-en="+ VAT / month" data-he="+ מע״מ / חודש">+ מע״מ / חודש</small></div><ul><li data-en="Everything in Monthly Content" data-he="כל מה שכלול בתוכן חודשי">כל מה שכלול בתוכן חודשי</li><li data-en="An additional shooting day, up to 8 hours" data-he="יום צילום נוסף עד 8 שעות">יום צילום נוסף עד 8 שעות</li><li data-en="Flexible support and continuous content delivered all month" data-he="ליווי דינמי וקבלת תוכן רציף לאורך כל החודש">ליווי דינמי וקבלת תוכן רציף לאורך כל החודש</li><li data-en="Work on several goals in parallel, based on what matters most to promote" data-he="ניתן לעבוד על כמה מטרות במקביל, לפי מה שחשוב לקדם">ניתן לעבוד על כמה מטרות במקביל, לפי מה שחשוב לקדם</li></ul><p class="pkg-min" data-en="*Minimum 3 months, to build a continuous workflow" data-he="*מינימום 3 חודשים על מנת לייצר תהליך עבודה רציף">*מינימום 3 חודשים על מנת לייצר תהליך עבודה רציף</p><a class="cta" data-track="pkg-department" data-en="Let&#x27;s talk →" data-he="בואו נדבר ←" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%94%20%D7%9C%D7%92%D7%91%D7%99%20%D7%9E%D7%97%D7%9C%D7%A7%D7%AA%20%D7%95%D7%99%D7%93%D7%90%D7%95">בואו נדבר ←</a></article></div><p class="note" data-en="* Prices exclude VAT. Not included: social account management, paid media, talent, locations and complex productions." data-he="* המחירים לפני מע״מ. לא כולל ניהול עמודים, מדיה ממומנת, שחקנים, לוקיישנים או הפקות מורכבות.">* המחירים לפני מע״מ. לא כולל ניהול עמודים, מדיה ממומנת, שחקנים, לוקיישנים או הפקות מורכבות.</p></section>
+<section class="container" id="bts"><div class="kicker">07 / BEHIND THE SCENES</div><h2 class="section-title" data-en="A still image never tells the whole story." data-he="תמונה אחת לא מספרת את כל הסיפור.">תמונה אחת לא מספרת את כל הסיפור.</h2><p class="lead" data-en="Moments from behind the scenes. Tap to play with sound." data-he="רגעים מאחורי הקלעים של ימי הצילום. לחצו להפעלה עם סאונד.">רגעים מאחורי הקלעים של ימי הצילום. לחצו להפעלה עם סאונד.</p><div class="reels bts"><figure class="reel"><div class="bts-v"><video playsinline="" preload="none" poster="assets/img/posters/bts-01.webp" src="assets/video/bts-01.mp4"></video><button class="bts-play" type="button" aria-label="הפעלה עם סאונד"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z"/></svg></button></div><figcaption>FILM / 01</figcaption></figure><figure class="reel"><div class="bts-v"><video playsinline="" preload="none" poster="assets/img/posters/bts-02.webp" src="assets/video/bts-02.mp4"></video><button class="bts-play" type="button" aria-label="הפעלה עם סאונד"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z"/></svg></button></div><figcaption>FILM / 02</figcaption></figure><figure class="reel"><div class="bts-v"><video playsinline="" preload="none" poster="assets/img/posters/bts-03.webp" src="assets/video/bts-03.mp4"></video><button class="bts-play" type="button" aria-label="הפעלה עם סאונד"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z"/></svg></button></div><figcaption>FILM / 03</figcaption></figure><figure class="reel"><div class="bts-v"><video playsinline="" preload="none" poster="assets/img/posters/bts-04.webp" src="assets/video/bts-04.mp4"></video><button class="bts-play" type="button" aria-label="הפעלה עם סאונד"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z"/></svg></button></div><figcaption>FILM / 04</figcaption></figure></div><p class="swipe-hint" data-en="Swipe for more →" data-he="← גוללים הצידה לעוד">← גוללים הצידה לעוד</p><div class="gallery"><img alt="מתן מחייך, צילום פורטרט טבעי" loading="lazy" src="assets/img/bts-portrait.webp"/><img alt="Matan filming" loading="lazy" src="assets/img/bts-filming.webp"/><img alt="Matan underwater" loading="lazy" src="assets/img/bts-underwater.webp"/></div></section><section class="mtk-cta" id="contact"><div class="cta-wall" aria-hidden="true"><div class="row"><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/></div><div class="row"><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/></div><div class="row"><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/><img alt="" loading="lazy" src="assets/reels/tnuva-l.webp"/><img alt="" loading="lazy" src="assets/reels/royoren-04.webp"/><img alt="" loading="lazy" src="assets/reels/wedding-v.webp"/><img alt="" loading="lazy" src="assets/reels/x-interviews.webp"/><img alt="" loading="lazy" src="assets/reels/clinic-v.webp"/><img alt="" loading="lazy" src="assets/reels/surf-l.webp"/><img alt="" loading="lazy" src="assets/reels/sgallery-v.webp"/><img alt="" loading="lazy" src="assets/reels/alma-05.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-06.webp"/><img alt="" loading="lazy" src="assets/reels/alma-01.webp"/><img alt="" loading="lazy" src="assets/reels/finnegan-07.webp"/><img alt="" loading="lazy" src="assets/reels/x-charity.webp"/><img alt="" loading="lazy" src="assets/reels/singles-v.webp"/><img alt="" loading="lazy" src="assets/reels/discount-05.webp"/><img alt="" loading="lazy" src="assets/reels/footlocker-v.webp"/></div></div><h2 data-en="What will you get from an intro call?" data-he="מה יוצא לכם משיחת היכרות?">מה יוצא לכם משיחת היכרות?</h2><p data-en="We will understand your business needs, brainstorm initial content ideas and recommend a production and editing setup that fits — no obligation." data-he="נבין יחד את הצורך העסקי, נחדד את קהל היעד, נעשה בריינסטורמינג ראשוני לרעיונות לתוכן ונמליץ על מסגרת צילום ועריכה שמתאימה לכם — בלי התחייבות.">נבין יחד את הצורך העסקי, נחדד את קהל היעד, נעשה בריינסטורמינג ראשוני לרעיונות לתוכן ונמליץ על מסגרת צילום ועריכה שמתאימה לכם — בלי התחייבות.</p><div class="mtk-buttons"><a data-en="Book an intro call on WhatsApp →" data-he="קובעים שיחת היכרות בוואטסאפ ←" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA">קובעים שיחת היכרות בוואטסאפ ←</a><a data-en="Call me · +972 50-334-2270" data-he="מתקשרים אליי · 050-334-2270" href="tel:+972503342270">מתקשרים אליי · 050-334-2270</a></div></section></main><div class="lb" hidden role="dialog" aria-modal="true" aria-label="נגן סרטונים"><button class="lb-x" type="button" aria-label="סגירה">✕</button><button class="lb-next" type="button" aria-label="הסרטון הבא">‹</button><div class="lb-stage"><video controls playsinline preload="auto"></video><div class="lb-cap"></div></div><button class="lb-prev" type="button" aria-label="הסרטון הקודם">›</button></div><a class="wa-fab" href="https://wa.me/972503342270?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%AA%D7%9F%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA" aria-label="קובעים שיחת היכרות בוואטסאפ"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.6 3 15.6c0 2.5.8 4.9 2.1 6.9L3.6 28.6l6.4-1.7c1.8 1 3.9 1.5 6 1.5 7.2 0 13-5.6 13-12.6S23.2 3 16 3zm0 22.9c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-3.8 1 1-3.6-.3-.4a10 10 0 0 1-1.6-5.5C5.5 10 10.2 5.5 16 5.5s10.5 4.5 10.5 10.1S21.8 25.9 16 25.9z"/><path fill="currentColor" d="M21.9 18.6c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.4 3.4c.2.2 2.3 3.5 5.6 4.9 2.1.9 2.9 1 3.9.8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5c-.1-.2-.3-.3-.6-.4z"/></svg></a><div class="grain" aria-hidden="true"></div><div class="progress" aria-hidden="true"></div><script id="v3js">(function(){
+'use strict';
+var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var FINE = window.matchMedia && matchMedia('(pointer:fine)').matches;
+var $ = function(s,r){return (r||document).querySelector(s)};
+var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function lang(){return document.documentElement.lang==='en'?'en':'he'}
+function clamp(v,a,b){return v<a?a:v>b?b:v}
+
+/* ---------- word splitting (re-run after language switch) ---------- */
+function splitWords(el,startIndex){
+  var txt=el.textContent; var parts=txt.split(/(\s+)/); var i=startIndex||0; el.textContent='';
+  parts.forEach(function(p){
+    if(!p) return;
+    if(/^\s+$/.test(p)){el.appendChild(document.createTextNode(' '));return}
+    var s=document.createElement('span'); s.className='w'; s.style.setProperty('--i',i++); s.textContent=p; el.appendChild(s);
+  });
+  return i;
+}
+function splitAll(){
+  var n=0; $$('.h4b h1 .split-w').forEach(function(el){n=splitWords(el,n)});
+  $$('.split-t').forEach(function(el){splitWords(el,0)});
+  $$('.ink').forEach(function(el){splitWords(el,0)});
+}
+
+/* ---------- reveal on scroll (elements stay readable at rest) ---------- */
+var revealIO = ('IntersectionObserver' in window) ? new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ var t=e.target; t.classList.add('in'); t.classList.remove('pre'); revealIO.unobserve(t); if(t.classList.contains('kicker')) scramble(t); if(t.hasAttribute('data-count')) countUp(t);} });
+},{rootMargin:'0px 0px -12% 0px',threshold:0.12}) : null;
+function arm(el){
+  if(!revealIO||RM){el.classList.add('in');return}
+  var r=el.getBoundingClientRect();
+  if(r.top < innerHeight*0.88 && r.bottom > 0){ el.classList.add('in'); return }
+  el.classList.add('pre'); revealIO.observe(el);
+}
+function setupReveals(){
+  // section titles: words brighten in
+  $$('.section-title, .footer h2, .mtk-cta h2, .experience-end, .case-title').forEach(function(el){ el.classList.add('split-t') });
+  // long leads: nas-style ink reveal tied to scroll
+  $$('.lead').forEach(function(el){ el.classList.add('ink') });
+  splitAll();
+  $$('.split-t').forEach(arm);
+  $$('.kicker').forEach(arm);
+  var groups=[['.voice'],['#problem .tile'],['.outcomes .stat'],['.experience-card'],['.package'],['#bts .reel'],['.steps .step']];
+  groups.forEach(function(g){ $$(g[0]).forEach(function(el,i){ el.classList.add('rv'); el.style.setProperty('--d',i%5); arm(el) }) });
+  $$('.experience-big').forEach(function(el){ el.setAttribute('data-count','12'); el.classList.add('rv'); arm(el) });
+  $$('#solution .sol-frame, .gallery>div').forEach(function(el){ el.classList.add('media-rv'); arm(el) });
+  $$('.note, .river-note, .chips, #solution .cta').forEach(function(el){ el.classList.add('rv'); arm(el) });
+  /* the contact buttons are the last thing on the page: never dim them (they could never scroll far enough to brighten) */
+}
+/* safety net: whatever is still waiting to reveal when the reader hits the bottom of the page comes in */
+function revealRest(){
+  if(innerHeight+scrollY < document.documentElement.scrollHeight-6) return;
+  $$('.pre').forEach(function(t){ t.classList.add('in'); t.classList.remove('pre'); if(revealIO) revealIO.unobserve(t) });
+}
+
+/* ---------- BTS films: play with sound on tap, browser controls only once playing ---------- */
+function setupBts(){
+  $$('.bts-v').forEach(function(w){
+    var v=$('video',w), b=$('.bts-play',w); if(!v||!b) return;
+    b.addEventListener('click',function(){ w.classList.add('on'); v.controls=true; v.muted=false; var p=v.play(); if(p&&p.catch) p.catch(function(){}) });
+    v.addEventListener('ended',function(){ w.classList.remove('on'); v.controls=false; try{v.currentTime=0}catch(e){} });
+  });
+}
+
+/* ---------- analytics (GA4): paste the Measurement ID ('G-XXXXXXX') to switch it on ---------- */
+var GA_ID='';
+function track(name,params){ try{ if(window.gtag) window.gtag('event',name,params||{}) }catch(e){} }
+function setupAnalytics(){
+  if(GA_ID){
+    var sc=document.createElement('script'); sc.async=true; sc.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(sc);
+    window.dataLayer=window.dataLayer||[]; window.gtag=function(){ window.dataLayer.push(arguments) }; window.gtag('js',new Date()); window.gtag('config',GA_ID);
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href^="https://wa.me"],a[href^="tel:"]'); if(!a) return;
+    var where=a.getAttribute('data-track') || (a.classList.contains('wa-fab')?'floating-button':a.closest('.hero')?'hero':a.closest('.mtk-cta')?'final-cta':a.closest('.package')?'package':'other');
+    track(a.getAttribute('href').indexOf('tel:')===0?'phone_click':'whatsapp_click',{location:where});
+  },true);
+}
+
+/* ---------- floating WhatsApp button (phones / touch) ---------- */
+function setupWaFab(){
+  var el=$('.wa-fab'); if(!el) return;
+  var btns=$('.mtk-buttons'), ctaIn=false;
+  if(btns && 'IntersectionObserver' in window){ new IntersectionObserver(function(es){ ctaIn=es[0].isIntersecting; upd() },{threshold:0.01}).observe(btns) }
+  function upd(){ var show = scrollY > innerHeight*0.6 && !ctaIn && !(lb && !lb.hidden); el.classList.toggle('on', show) }
+  function lbl(){ var L=lang(); el.setAttribute('aria-label', L==='en'?'Book an intro call on WhatsApp':'קובעים שיחת היכרות בוואטסאפ') }
+  addEventListener('scroll',upd,{passive:true}); setInterval(upd,700); upd(); lbl();
+  document.addEventListener('mtk:lang',lbl);
+}
+
+/* kicker text scramble */
+var GLYPHS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/';
+function scramble(el){
+  if(RM||el.dataset.done) return; el.dataset.done='1';
+  var final=el.textContent, t0=performance.now(), dur=700;
+  function f(now){
+    var p=clamp((now-t0)/dur,0,1), out='';
+    for(var i=0;i<final.length;i++){ var c=final[i]; out += (c===' '||c==='/'||i/final.length<p)?c:GLYPHS[(Math.random()*GLYPHS.length)|0]; }
+    el.textContent=out; if(p<1) requestAnimationFrame(f); else el.textContent=final;
+  }
+  requestAnimationFrame(f);
+}
+/* 0 -> 12 counter (only the number, not the label) */
+function countUp(el){
+  var node=el.firstChild; if(!node||node.nodeType!==3) return;
+  var target=parseInt(el.getAttribute('data-count'),10), t0=performance.now(), dur=1400;
+  if(RM){node.nodeValue=String(target);return}
+  function f(now){ var p=clamp((now-t0)/dur,0,1), e=1-Math.pow(1-p,3); node.nodeValue=String(Math.round(target*e)); if(p<1) requestAnimationFrame(f) }
+  node.nodeValue='0'; requestAnimationFrame(f);
+}
+
+/* ---------- preview videos: load + play only near the viewport ---------- */
+function ensureSrc(v){ if(!v.getAttribute('src') && v.dataset.src){ v.src=v.dataset.src } }
+function tryPlay(v){ ensureSrc(v); var p=v.play(); if(p&&p.catch) p.catch(function(){}) }
+var vidIO = ('IntersectionObserver' in window) ? new IntersectionObserver(function(es){
+  es.forEach(function(e){ var v=e.target; if(e.isIntersecting){ if(RM){ensureSrc(v);return} tryPlay(v) } else { if(!v.paused) v.pause() } });
+},{rootMargin:'120px 200px',threshold:0.01}) : null;
+function setupPreviews(){
+  $$('video.pv').forEach(function(v){ v.muted=true; v.setAttribute('muted',''); if(vidIO) vidIO.observe(v); else tryPlay(v) });
+}
+
+/* ---------- reel catalogue + lightbox ---------- */
+var CAT=[]; var cur=-1;
+function buildCatalogue(){
+  CAT=$$('.rc:not([aria-hidden])').map(function(b){ return { slug:b.dataset.slug, full:b.dataset.full, poster:b.dataset.poster, ar:parseFloat(b.dataset.ar)||0.5625 } });
+}
+function idxOf(slug){ for(var i=0;i<CAT.length;i++) if(CAT[i].slug===slug) return i; return 0 }
+var lb, lbv, lbc;
+function openLB(i){
+  if(!lb) return; cur=(i+CAT.length)%CAT.length; var r=CAT[cur], L=lang();
+  lbv.pause(); lbv.poster=r.poster; lbv.src=r.full; lbv.muted=false;
+  lbv.classList.toggle('land', r.ar>1);
+  lbc.innerHTML=''; var b=document.createElement('b'); b.textContent=(cur<9?'0':'')+(cur+1); lbc.appendChild(b);
+  lbc.appendChild(document.createTextNode(' / '+(CAT.length<10?'0':'')+CAT.length));
+  if(cursorReel) cursorReel.hide();
+  if(lb.hidden){ lb.hidden=false; lb.classList.remove('show'); void lb.offsetWidth; lb.classList.add('show'); document.documentElement.style.overflow='hidden'; $('.lb-x').focus({preventScroll:true}) }
+  lbv.style.animation='none'; void lbv.offsetWidth; lbv.style.animation='';
+  var p=lbv.play(); if(p&&p.catch) p.catch(function(){});
+}
+function closeLB(){ if(!lb||lb.hidden) return; lbv.pause(); lbv.removeAttribute('src'); lbv.load(); lb.hidden=true; document.documentElement.style.overflow='' }
+function setupLightbox(){
+  lb=$('.lb'); if(!lb) return; lbv=$('.lb video'); lbc=$('.lb-cap');
+  $('.lb-x').addEventListener('click',closeLB);
+  $('.lb-prev').addEventListener('click',function(){openLB(cur-1)});
+  $('.lb-next').addEventListener('click',function(){openLB(cur+1)});
+  lb.addEventListener('click',function(e){ if(e.target===lb) closeLB() });
+  lbv.addEventListener('ended',function(){ openLB(cur+1) });
+  document.addEventListener('keydown',function(e){ if(lb.hidden) return; if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') openLB(cur+1); if(e.key==='ArrowRight') openLB(cur-1) });
+  var sx=null; lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) openLB(cur+(dx<0?1:-1)); sx=null });
+  document.addEventListener('click',function(e){
+    var t=e.target.closest && e.target.closest('[data-open]'); if(!t) return;
+    e.preventDefault(); openLB(idxOf(t.getAttribute('data-open')));
+  });
+}
+
+/* ---------- work filter chips ---------- */
+function setupChips(){
+  var chips=$$('.chip'); if(!chips.length) return;
+  function show(p,anim){
+    chips.forEach(function(c){ c.setAttribute('aria-selected', String(c.dataset.p===p)) });
+    var k=0; $$('.wc').forEach(function(fig){ var on=fig.dataset.p===p; fig.hidden=!on; fig.classList.remove('enter'); if(on&&anim&&!RM){ fig.style.setProperty('--k',k++); void fig.offsetWidth; fig.classList.add('enter') } });
+    $$('.case-head').forEach(function(h){ h.hidden = h.dataset.p!==p });
+    var g=$('.work-grid'); if(g) g.scrollLeft=0;
+  }
+  chips.forEach(function(c){ c.addEventListener('click',function(){ show(c.dataset.p,true) }) });
+  show(chips[0].dataset.p,false);
+}
+
+/* ---------- floating reel in solution: cycles a few previews ---------- */
+function setupFloat(){
+  var box=$('.float-reel'); if(!box||getComputedStyle(box).display==='none') return; var vids=$$('video',box), i=0;
+  vids.forEach(function(v,k){ v.style.opacity=k?0:1; v.addEventListener('ended',function(){ if(RM) return; v.style.opacity=0; i=(i+1)%vids.length; var n=vids[i]; n.currentTime=0; n.style.opacity=1; tryPlay(n); box.setAttribute('data-open',n.dataset.slug) }) });
+  box.setAttribute('data-open',vids[0].dataset.slug);
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ var v=vids[i]; if(e.isIntersecting&&!RM) tryPlay(v); else { ensureSrc(v); v.pause() } }) },{rootMargin:'100px'}).observe(box) }
+}
+
+/* ---------- mini reel that follows the mouse (desktop). pointer-events:none, never blocks clicks ---------- */
+var cursorReel=null;
+function setupCursorReel(){
+  var el=$('.cursor-reel'); if(!el||RM) return; var v=$('video',el);
+  var list=CAT.map(function(r){return r}); if(!list.length) return;
+  var k=0, x=-300, y=-300, tx=-300, ty=-300, on=false, raf=0, W=0, H=0;
+  function load(i){ var r=list[i]; W=H=el.offsetWidth||86; v.poster=r.poster; v.src='assets/reels/p/'+r.slug+'.mp4'; var p=v.play(); if(p&&p.catch) p.catch(function(){}) }
+  v.addEventListener('ended',function(){ k=(k+1)%list.length; load(k) });
+  if(!FINE){
+    /* touch screens: no cursor, so the mini reel docks in the corner and travels down the page with the reader */
+    el.classList.add('dock'); var lastY=scrollY, off=0, sraf=0, lift=0, btns=$('.mtk-buttons');
+    function put(){ el.style.transform='translate3d(0,'+(off-lift).toFixed(1)+'px,0)' }
+    function settle(){ off*=0.86; if(Math.abs(off)<=0.3) off=0; put(); if(off) sraf=requestAnimationFrame(settle); else sraf=0 }
+    function dodge(){ /* never sit on top of the contact buttons: lift above them while they are on screen */
+      lift=0; if(!btns) return; var b=btns.getBoundingClientRect(), h=el.offsetHeight, bottom=innerHeight-16, top=bottom-h;
+      if(b.top<bottom && b.bottom>top){ var l=bottom-(b.top-12); if(top-l>70) lift=l }
+    }
+    function onS(){
+      var y=scrollY, dy=y-lastY; lastY=y;
+      var show = y > innerHeight*0.55 && !(lb && !lb.hidden);
+      if(show && !on){ on=true; el.classList.add('on'); if(!v.getAttribute('src')) load(k); else { var p=v.play(); if(p&&p.catch) p.catch(function(){}) } }
+      else if(!show && on){ on=false; el.classList.remove('on'); v.pause() }
+      dodge(); off = clamp(off - dy*0.25, -26, 26); put(); if(!sraf) sraf=requestAnimationFrame(settle);
+    }
+    addEventListener('scroll',onS,{passive:true}); onS();
+    setInterval(function(){ if(on){ dodge(); put() } }, 250); /* buttons may still be sliding into place after the scroll stops */
+    cursorReel={hide:function(){ on=false; el.classList.remove('on'); v.pause() }};
+    return;
+  }
+  function loop(){ x+=(tx-x)*0.16; y+=(ty-y)*0.16; el.style.transform='translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0)'; if(Math.abs(tx-x)+Math.abs(ty-y)>0.3) raf=requestAnimationFrame(loop); else raf=0 }
+  function aim(mx,my){
+    var gx=22, gy=26, vw=innerWidth, vh=innerHeight;
+    tx = (mx+gx+W > vw-8) ? mx-gx-W : mx+gx;
+    ty = (my+gy+H > vh-8) ? my-gy-H : my+gy;
+    if(!raf) raf=requestAnimationFrame(loop);
+  }
+  document.addEventListener('mousemove',function(e){
+    if(lb && !lb.hidden) return;
+    if(!on){ on=true; el.classList.add('on'); if(!v.getAttribute('src')) load(k); else { var p=v.play(); if(p&&p.catch) p.catch(function(){}) } x=e.clientX+22; y=e.clientY+26 }
+    aim(e.clientX,e.clientY);
+    var t=e.target, hot=t && t.closest && t.closest('a,button,video,input,.rc,.ex,.chip');
+    el.classList.toggle('dim', !!hot);
+  },{passive:true});
+  document.addEventListener('mouseleave',function(){ api.hide() });
+  document.documentElement.addEventListener('mouseleave',function(){ api.hide() });
+  var api={hide:function(){ on=false; el.classList.remove('on'); v.pause() }};
+  cursorReel=api;
+}
+
+/* ---------- workflow: sticky phone synced to steps ---------- */
+var flow=null;
+function setupFlow(){
+  var track=$('.flow-track'); if(!track) return;
+  flow={track:track, steps:$$('.flow .step'), vids:$$('.phone video'), bars:$$('.phone-bar i'), tag:$('.phone-tag b'), active:-1};
+}
+function updateFlow(){
+  if(!flow) return; var t=flow.track, cs=getComputedStyle($('.flow-pin'));
+  if(cs.position!=='sticky'){ if(flow.active!==-2){ flow.steps.forEach(function(s){s.classList.add('on');s.style.setProperty('--p',0)}); flow.vids.forEach(function(v){v.pause()}); flow.active=-2 } return }
+  var r=t.getBoundingClientRect(), span=r.height-innerHeight; var p=clamp(-r.top/span,0,0.9999);
+  var n=flow.steps.length, a=Math.floor(p*n), local=p*n-a;
+  flow.steps.forEach(function(s,k){ s.classList.toggle('on',k===a); s.style.setProperty('--p', k<a?1:(k===a?local:0)) });
+  flow.bars.forEach(function(b,k){ b.style.setProperty('--f', k<a?1:(k===a?local:0)) });
+  if(a!==flow.active){
+    flow.active=a; if(flow.tag) flow.tag.textContent='0'+(a+1);
+    var inView = r.top<innerHeight && r.bottom>0;
+    flow.vids.forEach(function(v,k){ v.classList.toggle('on',k===a); if(k===a&&inView&&!RM){ v.currentTime=0; tryPlay(v) } else if(k===a){ ensureSrc(v) } else v.pause() });
+  }
+}
+
+/* ---------- scroll loop: header, progress, ink, parallax ---------- */
+var hdr, prog, inks=[], heroImg, floatEl, ticking=false;
+function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(frame) } }
+function frame(){
+  ticking=false; var y=scrollY, H=innerHeight;
+  if(hdr) hdr.classList.toggle('scrolled', y>30);
+  if(prog){ var max=document.documentElement.scrollHeight-H; prog.style.transform='scaleX('+(max>0?y/max:0)+')' }
+  if(!RM){
+    if(heroImg && y<H*1.2) heroImg.style.transform='translateY('+(y*0.12)+'px)';
+    if(floatEl){ var fr=floatEl.parentNode.getBoundingClientRect(); if(fr.top<H&&fr.bottom>0){ floatEl.style.transform='translateY('+((fr.top+fr.height/2-H/2)*-0.12)+'px)' } }
+  }
+  inks.forEach(function(el){
+    var r=el.getBoundingClientRect(); if(r.bottom<-50||r.top>H+50) return;
+    var p=RM?1:clamp((H*0.92-r.top)/(H*0.55+r.height*0.35),0,1);
+    var ws=el._w||(el._w=el.querySelectorAll('.w')), n=ws.length, lit=p*n*1.05;
+    for(var i=0;i<n;i++){ ws[i].style.opacity = (0.28 + 0.72*clamp(lit-i,0,1)).toFixed(2) }
+  });
+  updateFlow();
+}
+function refreshInks(){ inks=$$('.ink'); inks.forEach(function(el){ el._w=null }) }
+
+/* ---------- hero timecode ---------- */
+function setupTimecode(){
+  var tc=$('.rec .tc'); if(!tc) return; var t0=performance.now();
+  function pad(n){return (n<10?'0':'')+n}
+  setInterval(function(){ var s=(performance.now()-t0)/1000, f=Math.floor((s%1)*25); s=Math.floor(s); tc.textContent=pad(Math.floor(s/3600))+':'+pad(Math.floor(s/60)%60)+':'+pad(s%60)+':'+pad(f) }, 80);
+}
+
+/* ---------- magnetic CTAs ---------- */
+function setupMagnet(){
+  if(!FINE||RM) return;
+  $$('.cta, .mtk-buttons a').forEach(function(b){
+    b.addEventListener('mousemove',function(e){ var r=b.getBoundingClientRect(); var dx=(e.clientX-r.left-r.width/2)*.18, dy=(e.clientY-r.top-r.height/2)*.3; b.style.transform='translate('+dx+'px,'+dy+'px)' });
+    b.addEventListener('mouseleave',function(){ b.style.transform='' });
+  });
+}
+
+/* ---------- only one sound video at a time (previews are muted and exempt) ---------- */
+document.addEventListener('play',function(e){
+  var t=e.target; if(!t||t.muted) return;
+  $$('video').forEach(function(v){ if(v!==t && !v.muted) v.pause() });
+},true);
+
+function init(){
+  hdr=$('header'); prog=$('.progress'); heroImg=$('.h4b .hero-photo'); floatEl=$('.float-reel');
+  setupReveals(); refreshInks(); setupPreviews(); buildCatalogue(); setupLightbox(); setupChips(); setupFloat(); setupCursorReel(); setupFlow(); setupTimecode(); setupMagnet(); setupWaFab(); setupBts(); setupAnalytics();
+  addEventListener('scroll',revealRest,{passive:true});
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); frame();
+  document.addEventListener('mtk:lang',function(){ splitAll(); refreshInks(); $$('.split-t').forEach(function(el){ if(!el.classList.contains('pre')) el.classList.add('in') }); frame() });
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script></body></html>
