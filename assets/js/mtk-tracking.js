@@ -7,7 +7,7 @@
 var CFG = {
   GA_ID: 'G-0VKRYYS2PD',            // Google Analytics (כבר פעיל באתר)
   BOOKING_URL: 'https://calendar.app.google/jyJXPhwFyrwLNDhs8',                  // קישור ליומן לקביעת שיחה (Google Calendar / Cal.com). ריק = הכפתור לא מוצג
-  LINKEDIN_PARTNER_ID: '',          // LinkedIn Insight Tag: מספר השותף (Partner ID)
+  LINKEDIN_PARTNER_ID: '11385897',          // LinkedIn Insight Tag: מספר השותף (Partner ID)
   LINKEDIN_CONVERSION_CONTACT: '',  // LinkedIn: מזהה המרה ללחיצה על וואטסאפ, טלפון או מייל
   LINKEDIN_CONVERSION_BOOKING: '',  // LinkedIn: מזהה המרה ללחיצה על קביעת שיחה
   META_PIXEL_ID: '4321838498101990',                // Meta Pixel (פייסבוק ואינסטגרם)
