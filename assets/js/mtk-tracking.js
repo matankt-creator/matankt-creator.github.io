@@ -10,7 +10,7 @@ var CFG = {
   LINKEDIN_PARTNER_ID: '',          // LinkedIn Insight Tag: מספר השותף (Partner ID)
   LINKEDIN_CONVERSION_CONTACT: '',  // LinkedIn: מזהה המרה ללחיצה על וואטסאפ, טלפון או מייל
   LINKEDIN_CONVERSION_BOOKING: '',  // LinkedIn: מזהה המרה ללחיצה על קביעת שיחה
-  META_PIXEL_ID: '',                // Meta Pixel (פייסבוק ואינסטגרם)
+  META_PIXEL_ID: '4321838498101990',                // Meta Pixel (פייסבוק ואינסטגרם)
   GOOGLE_ADS_ID: '',                // Google Ads, למשל 'AW-123456789'
   GOOGLE_ADS_LABEL_CONTACT: '',     // Google Ads: תווית המרה ללחיצה על וואטסאפ, טלפון או מייל
   GOOGLE_ADS_LABEL_BOOKING: ''      // Google Ads: תווית המרה ללחיצה על קביעת שיחה
