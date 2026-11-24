@@ -11,9 +11,9 @@ var CFG = {
   LINKEDIN_CONVERSION_CONTACT: '33087121',  // LinkedIn: מזהה המרה ללחיצה על וואטסאפ, טלפון או מייל
   LINKEDIN_CONVERSION_BOOKING: '33087113',  // LinkedIn: מזהה המרה ללחיצה על קביעת שיחה
   META_PIXEL_ID: '4321838498101990',                // Meta Pixel (פייסבוק ואינסטגרם)
-  GOOGLE_ADS_ID: '',                // Google Ads, למשל 'AW-123456789'
-  GOOGLE_ADS_LABEL_CONTACT: '',     // Google Ads: תווית המרה ללחיצה על וואטסאפ, טלפון או מייל
-  GOOGLE_ADS_LABEL_BOOKING: ''      // Google Ads: תווית המרה ללחיצה על קביעת שיחה
+  GOOGLE_ADS_ID: 'AW-18593571470',                // Google Ads, למשל 'AW-123456789'
+  GOOGLE_ADS_LABEL_CONTACT: 'A5raCMCS5L4dEI7FjaJF',     // Google Ads: תווית המרה ללחיצה על וואטסאפ, טלפון או מייל
+  GOOGLE_ADS_LABEL_BOOKING: 'YwaKCL2S5L4dEI7FjaJF'      // Google Ads: תווית המרה ללחיצה על קביעת שיחה
 };
 window.MTK_CFG = CFG;
 
