@@ -47,4 +47,30 @@ html.mtk-consent-open .wa-fab{bottom:118px}
 .legal-head a.back{font-size:14px;color:#dce0df}
 .pkg-custom .cta{background:transparent;color:var(--accent);border:1px solid var(--accent)}
 .pkg-custom .cta:hover{background:var(--accent);color:#111}
-@media(max-width:600px){.mtk-consent{left:10px;right:10px;bottom:10px;padding:12px 14px;font-size:13px;gap:10px}.mtk-consent button{padding:7px 14px;font-size:13px}html.mtk-consent-open .wa-fab{bottom:132px}}
+/* ---------- הודעת עוגיות בטלפון: שורה קומפקטית שלא מכסה את הכפתור ---------- */
+@media(max-width:600px){
+ .mtk-consent{left:8px;right:8px;bottom:8px;padding:8px 10px 8px 8px;gap:8px;flex-wrap:nowrap;font-size:12px;line-height:1.4;border-radius:12px}
+ .mtk-consent p{flex:1 1 auto;min-width:0}
+ .mtk-consent .c-btns{gap:6px}
+ .mtk-consent button{padding:6px 11px;font-size:12.5px;white-space:nowrap}
+ html.mtk-consent-open .wa-fab{bottom:92px}
+}
+
+/* ---------- פתיחת הדף בטלפון: כותרת, כפתור ופס הסרטונים במסך הראשון ---------- */
+@media (max-width:800px){
+ .h4b .hero-media{height:34svh;min-height:240px;max-height:330px;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 48%);mask-image:linear-gradient(to top,transparent 0,#000 48%);animation:none}
+ .h4b .hero-photo{object-position:100% 36%;animation:none}
+ .h4b .hero-content{margin:-78px 0 0;padding:0 20px 10px}
+ .h4b .eyebrow{font-size:11px}
+ .h4b h1{font-size:clamp(28px,7.8vw,36px);line-height:1.16;margin:10px 0 12px}
+ .h4b .hero-sub{font-size:15px;line-height:1.6;margin:0}
+ .h4b .cta{margin-top:16px}
+ .h4b .eyebrow,.h4b .hero-sub,.h4b .cta,.h4b .split-w .w{animation:none!important}
+ .h4b .rec{right:auto;left:16px}
+ .river{padding:10px 0 30px}
+}
+@media (max-width:800px) and (max-height:740px){
+ .h4b .hero-media{height:30svh;min-height:190px}
+ .h4b .hero-content{margin-top:-70px}
+ .h4b .cta{margin-top:12px}
+}
